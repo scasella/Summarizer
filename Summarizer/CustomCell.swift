@@ -11,8 +11,8 @@ import UIKit
 class CustomCell: UITableViewCell {
     
     @IBOutlet var label: UITextView!
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var button: UIButton!
+    @IBOutlet var deleteButton: UIButton!
 
-    
-    
-    
 }

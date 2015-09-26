@@ -8,15 +8,17 @@
 
 import UIKit
 
-var mappedURLs = [String]()
-
-var summaryCards = [String]()
-
-var updatesStartAtIndex = 0
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
-
+    
+   
+    @IBAction func seeFullArticle(sender: AnyObject) {
+        urlForWebView = sender.restorationIdentifier as String!
+        self.performSegueWithIdentifier("toWebView", sender: sender)
+    }
+    
+  
+    
     @IBOutlet var tableView: UITableView!
    
     override func viewDidAppear(animated: Bool) {
@@ -86,7 +88,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell : CustomCell! = tableView.dequeueReusableCellWithIdentifier("Cell") as! CustomCell
         
         cell.label.text = summaryCards[indexPath.row]
-       
+        cell.titleLabel.text = titleArray[indexPath.row]
+        cell.button.restorationIdentifier = urlArray[indexPath.row]
+      
         return cell
     }
     

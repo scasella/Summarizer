@@ -24,6 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             urlArray = NSUserDefaults.standardUserDefaults().objectForKey("urlArray") as! [String] }
         if  NSUserDefaults.standardUserDefaults().objectForKey("updatesStartAtIndex") != nil {
             updatesStartAtIndex = NSUserDefaults.standardUserDefaults().objectForKey("updatesStartAtIndex") as! Int }
+        if NSUserDefaults.standardUserDefaults().objectForKey("titleArray") != nil {
+            titleArray = NSUserDefaults.standardUserDefaults().objectForKey("titleArray") as! [String] }
        
         return true
     }
