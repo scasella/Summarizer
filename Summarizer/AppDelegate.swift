@@ -22,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             summaryCards = NSUserDefaults.standardUserDefaults().objectForKey("summaryCards") as! [String] }
         if NSUserDefaults.standardUserDefaults().objectForKey("urlArray") != nil {
             urlArray = NSUserDefaults.standardUserDefaults().objectForKey("urlArray") as! [String] }
+        if  NSUserDefaults.standardUserDefaults().objectForKey("updatesStartAtIndex") != nil {
+            updatesStartAtIndex = NSUserDefaults.standardUserDefaults().objectForKey("updatesStartAtIndex") as! Int }
        
         return true
     }

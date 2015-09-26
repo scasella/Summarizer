@@ -58,7 +58,12 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
            urlArray.removeAtIndex(indexPath.row)
+           mappedURLs.removeAtIndex(indexPath.row)
+           summaryCards.removeAtIndex(indexPath.row)
            NSUserDefaults.standardUserDefaults().setObject(urlArray, forKey: "urlArray")
+           NSUserDefaults.standardUserDefaults().setObject(mappedURLs, forKey: "mappedURLs")
+           NSUserDefaults.standardUserDefaults().setObject(summaryCards, forKey: "summaryCards")
+
             tableView.reloadData()
         }
     }

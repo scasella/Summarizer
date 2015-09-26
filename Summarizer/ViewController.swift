@@ -55,13 +55,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
         }
+        
         updatesStartAtIndex = mappedURLs.count
         NSUserDefaults.standardUserDefaults().setObject(summaryCards, forKey: "summaryCards")
         NSUserDefaults.standardUserDefaults().setObject(updatesStartAtIndex, forKey: "updatesStartAtIndex")
       
     }
     
-    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
