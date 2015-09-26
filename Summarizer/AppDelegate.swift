@@ -15,7 +15,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        if NSUserDefaults.standardUserDefaults().objectForKey("mappedURLs") != nil {
+            mappedURLs = NSUserDefaults.standardUserDefaults().objectForKey("mappedURLs") as! [String] }
+        if NSUserDefaults.standardUserDefaults().objectForKey("summaryCards") != nil {
+            summaryCards = NSUserDefaults.standardUserDefaults().objectForKey("summaryCards") as! [String] }
+        if NSUserDefaults.standardUserDefaults().objectForKey("urlArray") != nil {
+            urlArray = NSUserDefaults.standardUserDefaults().objectForKey("urlArray") as! [String] }
+       
         return true
     }
 
