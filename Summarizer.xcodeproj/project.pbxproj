@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		882379D11BB74636007C0635 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882379D01BB74636007C0635 /* ArticleViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		882379D31BB75541007C0635 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882379D21BB75541007C0635 /* Models.swift */; settings = {ASSET_TAGS = (); }; };
+		88519CCE1BB8521900C49896 /* GButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 88519CCB1BB8521900C49896 /* GButton.png */; settings = {ASSET_TAGS = (); }; };
+		88519CCF1BB8521900C49896 /* RButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 88519CCC1BB8521900C49896 /* RButton.png */; settings = {ASSET_TAGS = (); }; };
+		88519CD01BB8521900C49896 /* CardBG2.png in Resources */ = {isa = PBXBuildFile; fileRef = 88519CCD1BB8521900C49896 /* CardBG2.png */; settings = {ASSET_TAGS = (); }; };
+		88519CD21BB8530900C49896 /* CardBG3.png in Resources */ = {isa = PBXBuildFile; fileRef = 88519CD11BB8530900C49896 /* CardBG3.png */; settings = {ASSET_TAGS = (); }; };
+		88519CD51BB8824200C49896 /* FButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 88519CD31BB8824200C49896 /* FButton.png */; settings = {ASSET_TAGS = (); }; };
+		88519CD61BB8824200C49896 /* EButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 88519CD41BB8824200C49896 /* EButton.png */; settings = {ASSET_TAGS = (); }; };
 		8858A74B1BB395A700B8AF26 /* CardBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 8858A74A1BB395A700B8AF26 /* CardBG.png */; settings = {ASSET_TAGS = (); }; };
 		8858A74D1BB395D600B8AF26 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8858A74C1BB395D600B8AF26 /* CustomCell.swift */; settings = {ASSET_TAGS = (); }; };
 		88A40BF81BB700BA00AB9149 /* URLPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A40BF71BB700BA00AB9149 /* URLPageController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -22,6 +28,12 @@
 /* Begin PBXFileReference section */
 		882379D01BB74636007C0635 /* ArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
 		882379D21BB75541007C0635 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		88519CCB1BB8521900C49896 /* GButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GButton.png; sourceTree = "<group>"; };
+		88519CCC1BB8521900C49896 /* RButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RButton.png; sourceTree = "<group>"; };
+		88519CCD1BB8521900C49896 /* CardBG2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CardBG2.png; sourceTree = "<group>"; };
+		88519CD11BB8530900C49896 /* CardBG3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CardBG3.png; sourceTree = "<group>"; };
+		88519CD31BB8824200C49896 /* FButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FButton.png; sourceTree = "<group>"; };
+		88519CD41BB8824200C49896 /* EButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EButton.png; sourceTree = "<group>"; };
 		8858A74A1BB395A700B8AF26 /* CardBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CardBG.png; sourceTree = "<group>"; };
 		8858A74C1BB395D600B8AF26 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		88A40BF71BB700BA00AB9149 /* URLPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLPageController.swift; sourceTree = "<group>"; };
@@ -65,6 +77,12 @@
 			isa = PBXGroup;
 			children = (
 				88D0CB4E1BB3748700C896F8 /* Main.storyboard */,
+				88519CD31BB8824200C49896 /* FButton.png */,
+				88519CD41BB8824200C49896 /* EButton.png */,
+				88519CCB1BB8521900C49896 /* GButton.png */,
+				88519CCC1BB8521900C49896 /* RButton.png */,
+				88519CD11BB8530900C49896 /* CardBG3.png */,
+				88519CCD1BB8521900C49896 /* CardBG2.png */,
 				8858A74A1BB395A700B8AF26 /* CardBG.png */,
 				88A40BF71BB700BA00AB9149 /* URLPageController.swift */,
 				88D0CB4C1BB3748700C896F8 /* ViewController.swift */,
@@ -139,7 +157,13 @@
 				8858A74B1BB395A700B8AF26 /* CardBG.png in Resources */,
 				88D0CB551BB3748700C896F8 /* LaunchScreen.storyboard in Resources */,
 				88D0CB521BB3748700C896F8 /* Assets.xcassets in Resources */,
+				88519CD61BB8824200C49896 /* EButton.png in Resources */,
+				88519CCE1BB8521900C49896 /* GButton.png in Resources */,
+				88519CD21BB8530900C49896 /* CardBG3.png in Resources */,
+				88519CCF1BB8521900C49896 /* RButton.png in Resources */,
 				88D0CB501BB3748700C896F8 /* Main.storyboard in Resources */,
+				88519CD51BB8824200C49896 /* FButton.png in Resources */,
+				88519CD01BB8521900C49896 /* CardBG2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
