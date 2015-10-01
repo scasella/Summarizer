@@ -16,14 +16,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        if NSUserDefaults.standardUserDefaults().objectForKey("mappedURLs") != nil {
-            mappedURLs = NSUserDefaults.standardUserDefaults().objectForKey("mappedURLs") as! [String] }
+        if NSUserDefaults.standardUserDefaults().objectForKey("bookmarkArray") != nil {
+            bookmarkArray = NSUserDefaults.standardUserDefaults().objectForKey("bookmarkArray") as! [String] }
+        if NSUserDefaults.standardUserDefaults().objectForKey("bookmarkTitleArray") != nil {
+            bookmarkTitleArray = NSUserDefaults.standardUserDefaults().objectForKey("bookmarkTitleArray") as! [String] }
+        
         if NSUserDefaults.standardUserDefaults().objectForKey("summaryCards") != nil {
             summaryCards = NSUserDefaults.standardUserDefaults().objectForKey("summaryCards") as! [String] }
         if NSUserDefaults.standardUserDefaults().objectForKey("urlArray") != nil {
             urlArray = NSUserDefaults.standardUserDefaults().objectForKey("urlArray") as! [String] }
-        if  NSUserDefaults.standardUserDefaults().objectForKey("updatesStartAtIndex") != nil {
-            updatesStartAtIndex = NSUserDefaults.standardUserDefaults().objectForKey("updatesStartAtIndex") as! Int }
         if NSUserDefaults.standardUserDefaults().objectForKey("titleArray") != nil {
             titleArray = NSUserDefaults.standardUserDefaults().objectForKey("titleArray") as! [String] }
        

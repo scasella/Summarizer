@@ -12,6 +12,32 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
     
     @IBOutlet var addressField: UITextField!
     @IBOutlet var webView: UIWebView!
+    @IBOutlet var springView: SpringView!
+    @IBOutlet var springViewParent: SpringView!
+    
+    
+    
+    @IBAction func homePressed(sender: AnyObject) {
+   
+        springViewParent.animate()
+        self.dismissViewControllerAnimated(true, completion: { () -> Void in
+        })
+        performSegueWithIdentifier("toCards", sender: self)
+        
+    }
+    
+    
+    
+    @IBAction func editingStart(sender: AnyObject) {
+        webView.stopLoading()
+    }
+
+    
+    
+    @IBAction func goFieldPressed(sender: AnyObject) {
+        goPressed(self)
+        addressField.resignFirstResponder()
+    }
     
     
 
@@ -32,7 +58,7 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
     
     
     @IBAction func addPressed(sender: AnyObject) {
-        addTitleAndUrl(addressField.text!)
+        addTitleAndSummary(addressField.text!, bookmarksSelected: false, tableRefresh: nil)
     }
     
     
