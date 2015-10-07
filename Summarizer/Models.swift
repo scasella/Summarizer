@@ -45,7 +45,7 @@ func addTitleAndSummary(urlText: String, bookmarksSelected: Bool, tableRefresh: 
             
             if let urlContent = data {
                 
-                let webContent = NSString(data: urlContent, encoding: NSUTF8StringEncoding)?.stringByReplacingOccurrencesOfString("&#039;", withString: "'")
+                let webContent = NSString(data: urlContent, encoding: NSUTF8StringEncoding)
                 
                 let websiteArray = webContent!.componentsSeparatedByString("<title>")
                 
@@ -56,12 +56,12 @@ func addTitleAndSummary(urlText: String, bookmarksSelected: Bool, tableRefresh: 
                     wasSuccessful = true
                     
                     if bookmarksSelected == false {
-                        titleArray.append("\(weatherSummary[0])")
+                        titleArray.append("\(weatherSummary[0])".stringByReplacingOccurrencesOfString("&#039;", withString: "'").stringByReplacingOccurrencesOfString("&#39;", withString: "'"))
                         NSUserDefaults.standardUserDefaults().setObject(titleArray, forKey: "titleArray")
                         
                     } else {
                         
-                        bookmarkTitleArray.append("\(weatherSummary[0])")
+                        bookmarkTitleArray.append("\(weatherSummary[0])".stringByReplacingOccurrencesOfString("&#039;", withString: "'").stringByReplacingOccurrencesOfString("&#39;", withString: "'"))
                         NSUserDefaults.standardUserDefaults().setObject(bookmarkTitleArray, forKey: "bookmarkTitleArray")
                         if tableRefresh != nil {
                             tableRefresh!.reloadData() }

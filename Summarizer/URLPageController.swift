@@ -14,6 +14,8 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
     @IBOutlet var urlTextField: UITextField!
     @IBOutlet var bookmarkArticleSelector: UISegmentedControl!
     
+    @IBOutlet var timerLabel: SpringLabel!
+   
     
     
     @IBAction func selectorChanged(sender: AnyObject) {
@@ -24,6 +26,7 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     @IBAction func addURL(sender: AnyObject) {
         var url = ""
+        
         if urlTextField.text?.rangeOfString("http://") != nil{
             url = urlTextField.text!
         } else {
@@ -34,15 +37,18 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
         if bookmarkArticleSelector.selectedSegmentIndex == 0 {
             
             addTitleAndSummary(url, bookmarksSelected: true, tableRefresh: self.tableView)
-        
             
         } else {
-            addTitleAndSummary(url, bookmarksSelected: false, tableRefresh: self.tableView)
             
+            addTitleAndSummary(url, bookmarksSelected: false, tableRefresh: self.tableView)
+        
         }
         
         urlTextField.text = ""
         self.urlTextField.resignFirstResponder()
+        
+        timerLabel.animateToNext() {
+            self.tableView.reloadData() }
     }
     
     
@@ -65,7 +71,9 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
         performSegueWithIdentifier("toWebView", sender: self)
     }
     
-    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        

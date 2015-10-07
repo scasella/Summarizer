@@ -20,6 +20,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
   
     
     @IBOutlet var tableView: UITableView!
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "toWebViewBlank" {
+            urlForWebView = "http://news.google.com"
+        }
+    }
    
     override func viewDidAppear(animated: Bool) {
         

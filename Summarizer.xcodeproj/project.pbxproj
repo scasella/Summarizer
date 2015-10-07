@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		882379D11BB74636007C0635 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882379D01BB74636007C0635 /* ArticleViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		882379D31BB75541007C0635 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882379D21BB75541007C0635 /* Models.swift */; settings = {ASSET_TAGS = (); }; };
+		8823C9D31BC4929C005B835A /* BGCard3.png in Resources */ = {isa = PBXBuildFile; fileRef = 8823C9D21BC4929C005B835A /* BGCard3.png */; settings = {ASSET_TAGS = (); }; };
+		8823C9D61BC493CD005B835A /* RedEmpty.png in Resources */ = {isa = PBXBuildFile; fileRef = 8823C9D41BC493CD005B835A /* RedEmpty.png */; settings = {ASSET_TAGS = (); }; };
+		8823C9D71BC493CD005B835A /* RedFull.png in Resources */ = {isa = PBXBuildFile; fileRef = 8823C9D51BC493CD005B835A /* RedFull.png */; settings = {ASSET_TAGS = (); }; };
+		8823C9D91BC4A3DE005B835A /* BGCard4.png in Resources */ = {isa = PBXBuildFile; fileRef = 8823C9D81BC4A3DE005B835A /* BGCard4.png */; settings = {ASSET_TAGS = (); }; };
 		88519CCE1BB8521900C49896 /* GButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 88519CCB1BB8521900C49896 /* GButton.png */; settings = {ASSET_TAGS = (); }; };
 		88519CCF1BB8521900C49896 /* RButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 88519CCC1BB8521900C49896 /* RButton.png */; settings = {ASSET_TAGS = (); }; };
 		88519CD01BB8521900C49896 /* CardBG2.png in Resources */ = {isa = PBXBuildFile; fileRef = 88519CCD1BB8521900C49896 /* CardBG2.png */; settings = {ASSET_TAGS = (); }; };
@@ -56,6 +60,10 @@
 /* Begin PBXFileReference section */
 		882379D01BB74636007C0635 /* ArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
 		882379D21BB75541007C0635 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		8823C9D21BC4929C005B835A /* BGCard3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BGCard3.png; sourceTree = "<group>"; };
+		8823C9D41BC493CD005B835A /* RedEmpty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedEmpty.png; sourceTree = "<group>"; };
+		8823C9D51BC493CD005B835A /* RedFull.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedFull.png; sourceTree = "<group>"; };
+		8823C9D81BC4A3DE005B835A /* BGCard4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BGCard4.png; sourceTree = "<group>"; };
 		88519CCB1BB8521900C49896 /* GButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GButton.png; sourceTree = "<group>"; };
 		88519CCC1BB8521900C49896 /* RButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RButton.png; sourceTree = "<group>"; };
 		88519CCD1BB8521900C49896 /* CardBG2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CardBG2.png; sourceTree = "<group>"; };
@@ -169,6 +177,10 @@
 			children = (
 				8879CD0D1BBC90BE00042CFC /* Spring */,
 				88519CD31BB8824200C49896 /* FButton.png */,
+				8823C9D41BC493CD005B835A /* RedEmpty.png */,
+				8823C9D51BC493CD005B835A /* RedFull.png */,
+				8823C9D81BC4A3DE005B835A /* BGCard4.png */,
+				8823C9D21BC4929C005B835A /* BGCard3.png */,
 				88519CD41BB8824200C49896 /* EButton.png */,
 				88519CCB1BB8521900C49896 /* GButton.png */,
 				88519CCC1BB8521900C49896 /* RButton.png */,
@@ -246,6 +258,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8823C9D71BC493CD005B835A /* RedFull.png in Resources */,
+				8823C9D31BC4929C005B835A /* BGCard3.png in Resources */,
 				8858A74B1BB395A700B8AF26 /* CardBG.png in Resources */,
 				88D0CB551BB3748700C896F8 /* LaunchScreen.storyboard in Resources */,
 				88D0CB521BB3748700C896F8 /* Assets.xcassets in Resources */,
@@ -253,7 +267,9 @@
 				88519CCE1BB8521900C49896 /* GButton.png in Resources */,
 				88519CD21BB8530900C49896 /* CardBG3.png in Resources */,
 				88519CCF1BB8521900C49896 /* RButton.png in Resources */,
+				8823C9D91BC4A3DE005B835A /* BGCard4.png in Resources */,
 				88D0CB501BB3748700C896F8 /* Main.storyboard in Resources */,
+				8823C9D61BC493CD005B835A /* RedEmpty.png in Resources */,
 				88519CD51BB8824200C49896 /* FButton.png in Resources */,
 				8879CD2E1BBC90D300042CFC /* LoadingView.xib in Resources */,
 				88519CD01BB8521900C49896 /* CardBG2.png in Resources */,
