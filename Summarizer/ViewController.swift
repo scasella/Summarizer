@@ -25,10 +25,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "toWebViewBlank" {
             urlForWebView = "http://news.google.com"
+          
         }
+         
     }
+    
    
     override func viewDidAppear(animated: Bool) {
+        tableView.reloadData()
         
     }
     
@@ -41,7 +45,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Dispose of any resources that can be recreated.
     }
     
-
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return summaryCards.count

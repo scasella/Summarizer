@@ -13,16 +13,14 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
     @IBOutlet var tableView: UITableView!
     @IBOutlet var urlTextField: UITextField!
     @IBOutlet var bookmarkArticleSelector: UISegmentedControl!
+    @IBOutlet weak var buttonToCards: UIButton!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     @IBOutlet var timerLabel: SpringLabel!
    
-    
-    
     @IBAction func selectorChanged(sender: AnyObject) {
         tableView.reloadData()
     }
-    
-    
     
     @IBAction func addURL(sender: AnyObject) {
         var url = ""
@@ -36,19 +34,25 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         if bookmarkArticleSelector.selectedSegmentIndex == 0 {
             
-            addTitleAndSummary(url, bookmarksSelected: true, tableRefresh: self.tableView)
+            addTitleAndSummary(url, bookmarksSelected: true, tableRefresh: self.tableView, loadingIndicator: nil, buttonToHideShow: nil)
+            
+            
+            timerLabel.animateToNext() {
+                self.tableView.reloadData()
+            }
             
         } else {
             
-            addTitleAndSummary(url, bookmarksSelected: false, tableRefresh: self.tableView)
+            buttonToCards.hidden = true
+            loadingIndicator.hidden = false
+            
+            addTitleAndSummary(url, bookmarksSelected: false, tableRefresh: self.tableView, loadingIndicator: loadingIndicator, buttonToHideShow: buttonToCards)
         
         }
         
         urlTextField.text = ""
         self.urlTextField.resignFirstResponder()
-        
-        timerLabel.animateToNext() {
-            self.tableView.reloadData() }
+       
     }
     
     
@@ -57,6 +61,10 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
         super.viewDidLoad()
        
         }
+    
+    override func viewDidAppear(animated: Bool) {
+        tableView.reloadData()
+    }
     
     
 

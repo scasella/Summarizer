@@ -55,6 +55,7 @@
 		88D0CB501BB3748700C896F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88D0CB4E1BB3748700C896F8 /* Main.storyboard */; };
 		88D0CB521BB3748700C896F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88D0CB511BB3748700C896F8 /* Assets.xcassets */; };
 		88D0CB551BB3748700C896F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88D0CB531BB3748700C896F8 /* LaunchScreen.storyboard */; };
+		88F447351BCB444500F6CD2E /* CardScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F447341BCB444500F6CD2E /* CardScreen.png */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -108,6 +109,7 @@
 		88D0CB511BB3748700C896F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		88D0CB541BB3748700C896F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		88D0CB561BB3748700C896F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88F447341BCB444500F6CD2E /* CardScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CardScreen.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 				88519CD31BB8824200C49896 /* FButton.png */,
 				8823C9D41BC493CD005B835A /* RedEmpty.png */,
 				8823C9D51BC493CD005B835A /* RedFull.png */,
+				88F447341BCB444500F6CD2E /* CardScreen.png */,
 				8823C9D81BC4A3DE005B835A /* BGCard4.png */,
 				8823C9D21BC4929C005B835A /* BGCard3.png */,
 				88519CD41BB8824200C49896 /* EButton.png */,
@@ -269,6 +272,7 @@
 				88519CCF1BB8521900C49896 /* RButton.png in Resources */,
 				8823C9D91BC4A3DE005B835A /* BGCard4.png in Resources */,
 				88D0CB501BB3748700C896F8 /* Main.storyboard in Resources */,
+				88F447351BCB444500F6CD2E /* CardScreen.png in Resources */,
 				8823C9D61BC493CD005B835A /* RedEmpty.png in Resources */,
 				88519CD51BB8824200C49896 /* FButton.png in Resources */,
 				8879CD2E1BBC90D300042CFC /* LoadingView.xib in Resources */,

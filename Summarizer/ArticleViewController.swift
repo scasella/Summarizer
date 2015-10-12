@@ -14,7 +14,8 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
     @IBOutlet var webView: UIWebView!
     @IBOutlet var springView: SpringView!
     @IBOutlet var springViewParent: SpringView!
-    
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var closeButton: UIButton!
     
     
     @IBAction func homePressed(sender: AnyObject) {
@@ -58,7 +59,9 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
     
     
     @IBAction func addPressed(sender: AnyObject) {
-        addTitleAndSummary(addressField.text!, bookmarksSelected: false, tableRefresh: nil)
+        loadingIndicator.hidden = false
+        closeButton.hidden = true
+        addTitleAndSummary(addressField.text!, bookmarksSelected: false, tableRefresh: nil, loadingIndicator: loadingIndicator, buttonToHideShow: closeButton)
     }
     
     
@@ -80,6 +83,7 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
     let url = NSURL (string: "\(urlForWebView)");
     let requestObj = NSURLRequest(URL: url!);
     webView.loadRequest(requestObj);

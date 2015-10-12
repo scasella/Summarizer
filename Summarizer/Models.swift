@@ -22,7 +22,7 @@ var updatesStartAtIndex = 0
 
 var urlForWebView = ""
 
-func addTitleAndSummary(urlText: String, bookmarksSelected: Bool, tableRefresh: UITableView?) {
+func addTitleAndSummary(urlText: String, bookmarksSelected: Bool, tableRefresh: UITableView?, loadingIndicator: UIActivityIndicatorView?, buttonToHideShow: UIButton?) {
     
     if bookmarksSelected == false {
         
@@ -41,6 +41,8 @@ func addTitleAndSummary(urlText: String, bookmarksSelected: Bool, tableRefresh: 
     
     if let url = attemptedUrl {
         
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+        
         let task = NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) -> Void in
             
             if let urlContent = data {
@@ -56,7 +58,7 @@ func addTitleAndSummary(urlText: String, bookmarksSelected: Bool, tableRefresh: 
                     wasSuccessful = true
                     
                     if bookmarksSelected == false {
-                        titleArray.append("\(weatherSummary[0])".stringByReplacingOccurrencesOfString("&#039;", withString: "'").stringByReplacingOccurrencesOfString("&#39;", withString: "'"))
+                        titleArray.append("\(weatherSummary[0])".stringByReplacingOccurrencesOfString("&#039;", withString: "'").stringByReplacingOccurrencesOfString("&#39;", withString: "'").stringByReplacingOccurrencesOfString("&#x27;", withString: "'"))
                         NSUserDefaults.standardUserDefaults().setObject(titleArray, forKey: "titleArray")
                         
                     } else {
@@ -94,29 +96,44 @@ func addTitleAndSummary(urlText: String, bookmarksSelected: Bool, tableRefresh: 
                          summaryCards.append(summary as! String)
                          NSUserDefaults.standardUserDefaults().setObject(summaryCards, forKey: "summaryCards")
                             
-                        }}
+                            
+                            dispatch_sync(dispatch_get_main_queue()){
+                                
+                                if loadingIndicator != nil {
+                                    loadingIndicator!.hidden = true
+                                    buttonToHideShow!.hidden = false
+                                }
+                                
+                                if tableRefresh != nil {
+                                    tableRefresh!.reloadData() }
+                            }
+                            
+                            }}
                             
                         } catch {
                             
                         print("not a dictionary")
                         
                         }
-                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        if tableRefresh != nil {
-                            tableRefresh!.reloadData() }
-                     })
-                }
+    
+                                     }
             }
             
             if wasSuccessful == false {
                 
             }
+            
         }
         
         task.resume()
+           
+          })
         
     } else {
         
     }
+  
+    
+
 
 }
