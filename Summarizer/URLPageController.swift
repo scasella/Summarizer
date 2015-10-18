@@ -64,7 +64,10 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
    
     
     @IBAction func addURL(sender: AnyObject) {
-        var url = ""
+        
+        if urlTextField.text != "" {
+        
+            var url = ""
         
         if urlTextField.text?.rangeOfString("http://") != nil{
             url = urlTextField.text!
@@ -96,6 +99,9 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
         tableView.hidden = false
         
         urlTextField.text = ""
+            
+        }
+            
         urlTextField.resignFirstResponder()
        
     }
@@ -140,6 +146,10 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
             onboardingLabel.hidden = false
         }
        
+        tableView.layer.masksToBounds = true
+        tableView.layer.borderColor = UIColor.whiteColor().CGColor
+        tableView.layer.borderWidth = 1.0
+        
         }
     
     
@@ -166,9 +176,9 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     
     
-   /* override func preferredStatusBarStyle() -> UIStatusBarStyle {
+   override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
-    } */
+    }
     
     
     
@@ -190,12 +200,14 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
         if bookmarkArticleSelector.selectedSegmentIndex == 0 {
             cell.textLabel?.text = bookmarkTitleArray[indexPath.row]
             cell.textLabel?.font = UIFont.systemFontOfSize(15.0)
+               cell.textLabel?.textColor = UIColor.whiteColor()
             return cell
             
         } else {
         
         cell.textLabel?.text = titleArray[indexPath.row]
-        cell.textLabel?.font = UIFont.systemFontOfSize(13.0)
+        cell.textLabel?.font = UIFont.systemFontOfSize(14.0)
+          cell.textLabel?.textColor = UIColor.whiteColor()
             return cell
         }
        
