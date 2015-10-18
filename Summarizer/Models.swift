@@ -22,6 +22,8 @@ var updatesStartAtIndex = 0
 
 var urlForWebView = ""
 
+var showHomepageView = false 
+
 var homepage = "http://news.google.com"
 
 func addTitleAndSummary(urlText: String, bookmarksSelected: Bool, tableRefresh: UITableView?, loadingIndicator: UIActivityIndicatorView?, buttonToHideShow: UIButton?) {

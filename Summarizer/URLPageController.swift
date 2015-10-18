@@ -18,6 +18,7 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
     @IBOutlet weak var onboardingLabel: UILabel!
     @IBOutlet var homepageField: UITextField!
     @IBOutlet var timerLabel: SpringLabel!
+    @IBOutlet weak var homepageSetView: UIView!
    
     
     
@@ -124,7 +125,15 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if showHomepageView == true {
+        
+        homepageSetView.hidden = false 
         homepageField.text = "\(homepage)"
+            
+        } else {
+            
+            homepageSetView.hidden = true 
+        }
         
         if bookmarkArray.count == 0 {
             tableView.hidden = true

@@ -90,9 +90,21 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
     
     }
     
+    
+    
     func webViewDidFinishLoad(webView: UIWebView) {
         let currentURL : NSString = (webView.request?.URL!.absoluteString)!
         addressField.text = "\(currentURL)"
     }
+    
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "toURLPage" {
+            showHomepageView = true
+        }
+    }
+    
+    
     
   }

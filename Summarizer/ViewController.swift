@@ -41,7 +41,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "toWebViewBlank" {
             urlForWebView = "\(homepage)"
-          
+        } else if segue.identifier == "toURLPage" {
+            showHomepageView = false 
         }
          
     }
