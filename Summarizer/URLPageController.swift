@@ -15,12 +15,52 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
     @IBOutlet var bookmarkArticleSelector: UISegmentedControl!
     @IBOutlet weak var buttonToCards: UIButton!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
-    
+    @IBOutlet weak var onboardingLabel: UILabel!
+    @IBOutlet var homepageField: UITextField!
     @IBOutlet var timerLabel: SpringLabel!
    
+    
+    
     @IBAction func selectorChanged(sender: AnyObject) {
         tableView.reloadData()
+        
+        func restoreDefaultTableView() {
+            self.tableView.hidden = false
+            self.onboardingLabel.hidden = true
+        }
+        
+        if bookmarkArticleSelector.selectedSegmentIndex == 0 {
+            
+            urlTextField.placeholder = "Add favorite websites..."
+            
+            if bookmarkTitleArray.count == 0 {
+                tableView.hidden = true
+                onboardingLabel.text = "Add websites that post articles you like to read. Click the text box below."
+                onboardingLabel.hidden = false
+                
+                } else {
+                
+                restoreDefaultTableView()
+                
+                }
+            
+            } else {
+            
+            urlTextField.placeholder = "Paste article URL..."
+            
+            if titleArray.count == 0 {
+                tableView.hidden = true
+                onboardingLabel.text = "Visit your favorite websites to add articles to summarize."
+                onboardingLabel.hidden = false
+            
+                } else {
+                
+                restoreDefaultTableView()
+            }
+      }
     }
+    
+   
     
     @IBAction func addURL(sender: AnyObject) {
         var url = ""
@@ -41,6 +81,7 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
                 self.tableView.reloadData()
             }
             
+            
         } else {
             
             buttonToCards.hidden = true
@@ -50,17 +91,49 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         }
         
+        onboardingLabel.hidden = true
+        tableView.hidden = false
+        
         urlTextField.text = ""
-        self.urlTextField.resignFirstResponder()
+        urlTextField.resignFirstResponder()
        
     }
     
     
+    @IBAction func setHomepage(sender: AnyObject) {
+     
+        if homepageField.text != "" {
+       
+        if homepageField.text?.rangeOfString("http://") != nil{
+            
+            homepage = homepageField.text!
+        
+        } else {
+           
+            homepage = "http://" + homepageField.text!
+        }
+            NSUserDefaults.standardUserDefaults().setObject(homepage, forKey: "homepage")
+       
+        }
+        
+        homepageField.resignFirstResponder()
+        homepageField.text = "\(homepage)"
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        homepageField.text = "\(homepage)"
+        
+        if bookmarkArray.count == 0 {
+            tableView.hidden = true
+            onboardingLabel.hidden = false
+        }
        
         }
+    
+    
     
     override func viewDidAppear(animated: Bool) {
         tableView.reloadData()
@@ -72,16 +145,23 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         if bookmarkArticleSelector.selectedSegmentIndex == 0 {
         urlForWebView = bookmarkArray[indexPath.row]
+            
         } else {
+            
         urlForWebView = urlArray[indexPath.row]
+       
         }
         
         performSegueWithIdentifier("toWebView", sender: self)
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+    
+    
+   /* override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
-    }
+    } */
+    
+    
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        
@@ -100,11 +180,13 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         if bookmarkArticleSelector.selectedSegmentIndex == 0 {
             cell.textLabel?.text = bookmarkTitleArray[indexPath.row]
+            cell.textLabel?.font = UIFont.systemFontOfSize(15.0)
             return cell
             
         } else {
         
         cell.textLabel?.text = titleArray[indexPath.row]
+        cell.textLabel?.font = UIFont.systemFontOfSize(13.0)
             return cell
         }
        
@@ -126,6 +208,7 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
                 NSUserDefaults.standardUserDefaults().setObject(bookmarkArray, forKey: "bookmarkArray")
                 NSUserDefaults.standardUserDefaults().setObject(bookmarkTitleArray, forKey: "bookmarkTitleArray")
             } else {
+                
            urlArray.removeAtIndex(indexPath.row)
            titleArray.removeAtIndex(indexPath.row)
            summaryCards.removeAtIndex(indexPath.row)

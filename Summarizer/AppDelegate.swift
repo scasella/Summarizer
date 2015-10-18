@@ -18,15 +18,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if NSUserDefaults.standardUserDefaults().objectForKey("bookmarkArray") != nil {
             bookmarkArray = NSUserDefaults.standardUserDefaults().objectForKey("bookmarkArray") as! [String] }
+        
         if NSUserDefaults.standardUserDefaults().objectForKey("bookmarkTitleArray") != nil {
             bookmarkTitleArray = NSUserDefaults.standardUserDefaults().objectForKey("bookmarkTitleArray") as! [String] }
         
         if NSUserDefaults.standardUserDefaults().objectForKey("summaryCards") != nil {
             summaryCards = NSUserDefaults.standardUserDefaults().objectForKey("summaryCards") as! [String] }
+        
         if NSUserDefaults.standardUserDefaults().objectForKey("urlArray") != nil {
             urlArray = NSUserDefaults.standardUserDefaults().objectForKey("urlArray") as! [String] }
+        
         if NSUserDefaults.standardUserDefaults().objectForKey("titleArray") != nil {
             titleArray = NSUserDefaults.standardUserDefaults().objectForKey("titleArray") as! [String] }
+        
+        if NSUserDefaults.standardUserDefaults().objectForKey("homepage") != nil {
+            homepage = NSUserDefaults.standardUserDefaults().objectForKey("homepage") as! String }
        
         return true
     }

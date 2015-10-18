@@ -17,14 +17,30 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.performSegueWithIdentifier("toWebView", sender: sender)
     }
     
+    
   
+    @IBAction func deleteCard(sender: AnyObject) {
+        
+        let customIndexPath = urlArray.indexOf(sender.restorationIdentifier as String!)
+        
+        urlArray.removeAtIndex(customIndexPath!)
+        titleArray.removeAtIndex(customIndexPath!)
+        summaryCards.removeAtIndex(customIndexPath!)
+        NSUserDefaults.standardUserDefaults().setObject(urlArray, forKey: "urlArray")
+        NSUserDefaults.standardUserDefaults().setObject(titleArray, forKey: "titleArray")
+        NSUserDefaults.standardUserDefaults().setObject(summaryCards, forKey: "summaryCards")
+        
+        tableView.reloadData()
+    }
+    
+    
     
     @IBOutlet var tableView: UITableView!
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "toWebViewBlank" {
-            urlForWebView = "http://news.google.com"
+            urlForWebView = "\(homepage)"
           
         }
          
@@ -57,6 +73,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.label.text = summaryCards[indexPath.row]
         cell.titleLabel.text = titleArray[indexPath.row]
         cell.button.restorationIdentifier = urlArray[indexPath.row]
+        cell.deleteButton.restorationIdentifier = urlArray[indexPath.row]
       
         return cell
     }

@@ -76,7 +76,7 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
     
     @IBAction func forwardPressed(sender: AnyObject) {
           if self.webView.canGoForward == true {
-        self.webView.goBack()
+        self.webView.goForward()
     }
     }
     
