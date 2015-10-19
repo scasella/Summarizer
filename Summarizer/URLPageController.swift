@@ -10,16 +10,17 @@ import UIKit
 
 class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    @IBOutlet var tableView: UITableView!
-    @IBOutlet var urlTextField: UITextField!
-    @IBOutlet var bookmarkArticleSelector: UISegmentedControl!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var urlTextField: UITextField!
+    @IBOutlet weak var bookmarkArticleSelector: UISegmentedControl!
     @IBOutlet weak var buttonToCards: UIButton!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var onboardingLabel: UILabel!
-    @IBOutlet var homepageField: UITextField!
-    @IBOutlet var timerLabel: SpringLabel!
+    @IBOutlet weak var homepageField: UITextField!
+    @IBOutlet weak var timerLabel: SpringLabel!
     @IBOutlet weak var homepageSetView: UIView!
    
+    @IBOutlet weak var blurView: UIVisualEffectView!
     
     
     @IBAction func selectorChanged(sender: AnyObject) {
@@ -131,7 +132,14 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if showHomepageView == true {
+        blurView.layer.masksToBounds = true
+        blurView.layer.cornerRadius = 12.0
+        
+        homepageSetView.hidden = false
+        homepageField.text = "\(homepage)"
+
+        
+        /*if showHomepageView == true {
         
         homepageSetView.hidden = false 
         homepageField.text = "\(homepage)"
@@ -139,7 +147,7 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
         } else {
             
             homepageSetView.hidden = true 
-        }
+        } */
         
         if bookmarkArray.count == 0 {
             tableView.hidden = true
