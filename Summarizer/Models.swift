@@ -22,7 +22,9 @@ var updatesStartAtIndex = 0
 
 var urlForWebView = ""
 
-var showHomepageView = false 
+var showHomepageView = false
+
+var fromMainPage = true 
 
 var homepage = "http://news.google.com"
 

@@ -21,6 +21,7 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
     @IBOutlet weak var homepageSetView: UIView!
    
     @IBOutlet weak var blurView: UIVisualEffectView!
+    @IBOutlet weak var springView: SpringView!
     
     
     @IBAction func selectorChanged(sender: AnyObject) {
@@ -158,6 +159,7 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
         tableView.layer.borderColor = UIColor.whiteColor().CGColor
         tableView.layer.borderWidth = 1.0
         
+        
         }
     
     
@@ -167,7 +169,26 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     
+    
+    @IBAction func closePressed(sender: AnyObject) {
+        
+        springView.duration = 1.25
+        springView.y = -1000
+        springView.animateToNext() {
+            
+            if fromMainPage == true {
+               self.performSegueWithIdentifier("toMain", sender: self)
+            } else {
+               self.performSegueWithIdentifier("toWebView", sender: self)
+            }
+        }
+        self.dismissViewControllerAnimated(true, completion: { () -> Void in
+        })
 
+    }
+    
+    
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         if bookmarkArticleSelector.selectedSegmentIndex == 0 {
@@ -183,9 +204,17 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     
-    
+   
    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+    if fromMainPage == true {
+        
         return UIStatusBarStyle.LightContent
+        
+    } else {
+        
+        return UIStatusBarStyle.Default
+    }
+    
     }
     
     

@@ -135,7 +135,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="animation" value="slideUp"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="duration">
-                                        <real key="value" value="1.25"/>
+                                        <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -314,16 +314,17 @@
                         <viewControllerLayoutGuide type="top" id="qLO-f7-SGt"/>
                         <viewControllerLayoutGuide type="bottom" id="H8m-DQ-YVQ"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="0ha-8G-ZR1">
+                    <view key="view" contentMode="scaleToFill" id="0ha-8G-ZR1" customClass="SpringView" customModule="Summarizer" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <visualEffectView opaque="NO" alpha="0.94999999999999996" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kpz-ei-Hwg">
-                                <rect key="frame" x="13" y="28" width="352" height="378"/>
+                                <rect key="frame" x="11" y="28" width="352" height="378"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="U1Z-H1-PMO">
                                     <rect key="frame" x="0.0" y="0.0" width="352" height="378"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <animations/>
+                                    <gestureRecognizers/>
                                 </view>
                                 <animations/>
                                 <blurEffect style="dark"/>
@@ -388,7 +389,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="showDetail" animates="NO" id="qOr-rE-t5m"/>
+                                            <action selector="closePressed:" destination="vtg-0o-lRL" eventType="touchUpInside" id="2tW-Cm-4Za"/>
                                         </connections>
                                     </button>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="TGf-2K-nAH">
@@ -448,6 +449,14 @@
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="animation" value="slideDown"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                                <real key="value" value="1.25"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
@@ -458,15 +467,17 @@
                         <outlet property="homepageSetView" destination="cpd-7K-kw3" id="8b3-bn-PdD"/>
                         <outlet property="loadingIndicator" destination="Sc8-pa-bAb" id="Cyj-9n-ZJd"/>
                         <outlet property="onboardingLabel" destination="t2F-YQ-kLB" id="6xf-Aq-kW6"/>
+                        <outlet property="springView" destination="0ha-8G-ZR1" id="xsW-LW-Jsq"/>
                         <outlet property="tableView" destination="QtT-Hl-EIl" id="G7G-e4-cdF"/>
                         <outlet property="timerLabel" destination="mcM-LJ-Jxh" id="5Yc-sY-jtq"/>
                         <outlet property="urlTextField" destination="cnb-Rs-ppq" id="RRT-2A-b8g"/>
-                        <segue destination="Wv0-vg-sSI" kind="showDetail" identifier="toWebView" animates="NO" id="v9I-LL-Hzf"/>
+                        <segue destination="Wv0-vg-sSI" kind="show" identifier="toWebView" animates="NO" id="v9I-LL-Hzf"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="toMain" animates="NO" id="6oY-yh-Fcw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GWO-Br-WF3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="806.5" y="284.5"/>
+            <point key="canvasLocation" x="829.5" y="291.5"/>
         </scene>
     </scenes>
     <resources>
@@ -475,8 +486,8 @@
         <image name="RedFull.png" width="135" height="135"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="qOr-rE-t5m"/>
-        <segue reference="Iya-No-yjJ"/>
+        <segue reference="6oY-yh-Fcw"/>
+        <segue reference="bwp-gO-Dzb"/>
         <segue reference="v9I-LL-Hzf"/>
     </inferredMetricsTieBreakers>
 </document>

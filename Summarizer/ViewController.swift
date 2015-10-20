@@ -42,6 +42,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if segue.identifier == "toWebViewBlank" {
             urlForWebView = "\(homepage)"
         } else if segue.identifier == "toURLPage" {
+            fromMainPage = true
             showHomepageView = false 
         }
          

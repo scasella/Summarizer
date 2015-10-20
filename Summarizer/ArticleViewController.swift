@@ -10,10 +10,10 @@ import UIKit
 
 class ArticleViewController: UIViewController, UIWebViewDelegate {
     
-    @IBOutlet var addressField: UITextField!
-    @IBOutlet var webView: UIWebView!
-    @IBOutlet var springView: SpringView!
-    @IBOutlet var springViewParent: SpringView!
+    @IBOutlet weak var addressField: UITextField!
+    @IBOutlet weak var webView: UIWebView!
+    @IBOutlet weak var springView: SpringView!
+    @IBOutlet weak var springViewParent: SpringView!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var closeButton: UIButton!
     
@@ -101,6 +101,7 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "toURLPage" {
+            fromMainPage = false 
             showHomepageView = true
         }
     }
