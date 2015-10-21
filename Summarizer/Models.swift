@@ -100,7 +100,7 @@ func addTitleAndSummary(urlText: String, bookmarksSelected: Bool, tableRefresh: 
                         let summary = item["summarytext"]!
                             
                          summaryCards.append(summary as! String)
-                         NSUserDefaults.init(suiteName: "group.com.scasella.summarizer")!.setObject(summaryCards, forKey: "summaryCards")
+                         NSUserDefaults.standardUserDefaults().setObject(summaryCards, forKey: "summaryCards")
                             
                             
                             dispatch_sync(dispatch_get_main_queue()){

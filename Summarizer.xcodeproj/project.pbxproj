@@ -26,6 +26,7 @@
 		886CB8E61BD7122B003D9F63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 886CB8E51BD7122B003D9F63 /* Assets.xcassets */; };
 		886CB8EA1BD7122B003D9F63 /* SummarizerWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 886CB8D01BD7122B003D9F63 /* SummarizerWatch.app */; };
 		886CB8F61BD717E1003D9F63 /* rowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886CB8F51BD717E1003D9F63 /* rowController.swift */; settings = {ASSET_TAGS = (); }; };
+		886CB8FF1BD74CF4003D9F63 /* FullSummaryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886CB8FD1BD74CF4003D9F63 /* FullSummaryController.swift */; settings = {ASSET_TAGS = (); }; };
 		8879CD2A1BBC90D300042CFC /* AsyncButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8879CD0E1BBC90D300042CFC /* AsyncButton.swift */; settings = {ASSET_TAGS = (); }; };
 		8879CD2B1BBC90D300042CFC /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8879CD0F1BBC90D300042CFC /* AsyncImageView.swift */; settings = {ASSET_TAGS = (); }; };
 		8879CD2C1BBC90D300042CFC /* AutoTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8879CD101BBC90D300042CFC /* AutoTextView.swift */; settings = {ASSET_TAGS = (); }; };
@@ -131,6 +132,7 @@
 		886CB8F41BD7151B003D9F63 /* SummarizerWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SummarizerWatch.entitlements; sourceTree = "<group>"; };
 		886CB8F51BD717E1003D9F63 /* rowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = rowController.swift; sourceTree = "<group>"; };
 		886CB8F71BD7197F003D9F63 /* SummarizerWatch Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "SummarizerWatch Extension.entitlements"; sourceTree = "<group>"; };
+		886CB8FD1BD74CF4003D9F63 /* FullSummaryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullSummaryController.swift; sourceTree = "<group>"; };
 		8879CD0E1BBC90D300042CFC /* AsyncButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncButton.swift; sourceTree = "<group>"; };
 		8879CD0F1BBC90D300042CFC /* AsyncImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		8879CD101BBC90D300042CFC /* AutoTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoTextView.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 			children = (
 				886CB8F71BD7197F003D9F63 /* SummarizerWatch Extension.entitlements */,
 				886CB8E11BD7122B003D9F63 /* InterfaceController.swift */,
+				886CB8FD1BD74CF4003D9F63 /* FullSummaryController.swift */,
 				886CB8F51BD717E1003D9F63 /* rowController.swift */,
 				886CB8E31BD7122B003D9F63 /* ExtensionDelegate.swift */,
 				886CB8E51BD7122B003D9F63 /* Assets.xcassets */,
@@ -461,6 +464,7 @@
 				886CB8E41BD7122B003D9F63 /* ExtensionDelegate.swift in Sources */,
 				886CB8F61BD717E1003D9F63 /* rowController.swift in Sources */,
 				886CB8E21BD7122B003D9F63 /* InterfaceController.swift in Sources */,
+				886CB8FF1BD74CF4003D9F63 /* FullSummaryController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -751,6 +755,7 @@
 				886CB8EE1BD7122B003D9F63 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		886CB8F11BD7122B003D9F63 /* Build configuration list for PBXNativeTarget "SummarizerWatch" */ = {
 			isa = XCConfigurationList;
@@ -759,6 +764,7 @@
 				886CB8EC1BD7122B003D9F63 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		88D0CB421BB3748700C896F8 /* Build configuration list for PBXProject "Summarizer" */ = {
 			isa = XCConfigurationList;
