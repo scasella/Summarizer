@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import WatchConnectivity
 
-class ArticleViewController: UIViewController, UIWebViewDelegate {
+class ArticleViewController: UIViewController, UIWebViewDelegate, WCSessionDelegate {
     
     @IBOutlet weak var addressField: UITextField!
     @IBOutlet weak var webView: UIWebView!
@@ -16,6 +17,8 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
     @IBOutlet weak var springViewParent: SpringView!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var closeButton: UIButton!
+    
+    var session: WCSession!
     
     
     @IBAction func homePressed(sender: AnyObject) {
@@ -62,16 +65,23 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
         loadingIndicator.hidden = false
         closeButton.hidden = true
         addTitleAndSummary(addressField.text!, bookmarksSelected: false, tableRefresh: nil, loadingIndicator: loadingIndicator, buttonToHideShow: closeButton)
+    
+
     }
     
     
     
     @IBAction func backPressed(sender: AnyObject) {
-        if self.webView.canGoBack == true {
-        self.webView.goBack()
+      /*  if self.webView.canGoBack == true {
+        self.webView.goBack()    }*/
+        
+        let dict = ["summary": summaryCards, "title": titleArray]
+   
+        session.sendMessage(dict, replyHandler: nil, errorHandler: nil)
+
+ 
     }
-    }
-    
+
     
     
     @IBAction func forwardPressed(sender: AnyObject) {
@@ -83,6 +93,13 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if(WCSession.isSupported()) {
+            self.session = WCSession.defaultSession()
+            self.session.delegate = self
+            self.session.activateSession()
+        } else {
+            print("not avail") }
     
     let url = NSURL (string: "\(urlForWebView)");
     let requestObj = NSURLRequest(URL: url!);

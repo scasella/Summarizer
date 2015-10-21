@@ -9,9 +9,12 @@
 import UIKit
 
 
+
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-   
+
+    
+    
     @IBAction func seeFullArticle(sender: AnyObject) {
         urlForWebView = sender.restorationIdentifier as String!
         self.performSegueWithIdentifier("toWebView", sender: sender)
@@ -47,8 +50,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
          
     }
+    override func viewDidLoad() {
+                
+    }
     
-   
     override func viewDidAppear(animated: Bool) {
         tableView.reloadData()
         

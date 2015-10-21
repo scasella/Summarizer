@@ -18,6 +18,14 @@
 		88519CD51BB8824200C49896 /* FButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 88519CD31BB8824200C49896 /* FButton.png */; settings = {ASSET_TAGS = (); }; };
 		88519CD61BB8824200C49896 /* EButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 88519CD41BB8824200C49896 /* EButton.png */; settings = {ASSET_TAGS = (); }; };
 		8858A74D1BB395D600B8AF26 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8858A74C1BB395D600B8AF26 /* CustomCell.swift */; settings = {ASSET_TAGS = (); }; };
+		886CB8D41BD7122B003D9F63 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 886CB8D21BD7122B003D9F63 /* Interface.storyboard */; };
+		886CB8D61BD7122B003D9F63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 886CB8D51BD7122B003D9F63 /* Assets.xcassets */; };
+		886CB8DD1BD7122B003D9F63 /* SummarizerWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 886CB8DC1BD7122B003D9F63 /* SummarizerWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		886CB8E21BD7122B003D9F63 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886CB8E11BD7122B003D9F63 /* InterfaceController.swift */; };
+		886CB8E41BD7122B003D9F63 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886CB8E31BD7122B003D9F63 /* ExtensionDelegate.swift */; };
+		886CB8E61BD7122B003D9F63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 886CB8E51BD7122B003D9F63 /* Assets.xcassets */; };
+		886CB8EA1BD7122B003D9F63 /* SummarizerWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 886CB8D01BD7122B003D9F63 /* SummarizerWatch.app */; };
+		886CB8F61BD717E1003D9F63 /* rowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886CB8F51BD717E1003D9F63 /* rowController.swift */; settings = {ASSET_TAGS = (); }; };
 		8879CD2A1BBC90D300042CFC /* AsyncButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8879CD0E1BBC90D300042CFC /* AsyncButton.swift */; settings = {ASSET_TAGS = (); }; };
 		8879CD2B1BBC90D300042CFC /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8879CD0F1BBC90D300042CFC /* AsyncImageView.swift */; settings = {ASSET_TAGS = (); }; };
 		8879CD2C1BBC90D300042CFC /* AutoTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8879CD101BBC90D300042CFC /* AutoTextView.swift */; settings = {ASSET_TAGS = (); }; };
@@ -56,6 +64,48 @@
 		88D0CB551BB3748700C896F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88D0CB531BB3748700C896F8 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		886CB8DE1BD7122B003D9F63 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 88D0CB3F1BB3748700C896F8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 886CB8DB1BD7122B003D9F63;
+			remoteInfo = "SummarizerWatch Extension";
+		};
+		886CB8E81BD7122B003D9F63 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 88D0CB3F1BB3748700C896F8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 886CB8CF1BD7122B003D9F63;
+			remoteInfo = SummarizerWatch;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		886CB8F01BD7122B003D9F63 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				886CB8DD1BD7122B003D9F63 /* SummarizerWatch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		886CB8F21BD7122B003D9F63 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				886CB8EA1BD7122B003D9F63 /* SummarizerWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		882379D01BB74636007C0635 /* ArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
 		882379D21BB75541007C0635 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
@@ -68,6 +118,19 @@
 		88519CD31BB8824200C49896 /* FButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FButton.png; sourceTree = "<group>"; };
 		88519CD41BB8824200C49896 /* EButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EButton.png; sourceTree = "<group>"; };
 		8858A74C1BB395D600B8AF26 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		886CB8D01BD7122B003D9F63 /* SummarizerWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SummarizerWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		886CB8D31BD7122B003D9F63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		886CB8D51BD7122B003D9F63 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		886CB8D71BD7122B003D9F63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		886CB8DC1BD7122B003D9F63 /* SummarizerWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "SummarizerWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		886CB8E11BD7122B003D9F63 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		886CB8E31BD7122B003D9F63 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		886CB8E51BD7122B003D9F63 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		886CB8E71BD7122B003D9F63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		886CB8F31BD714FD003D9F63 /* Summarizer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Summarizer.entitlements; sourceTree = "<group>"; };
+		886CB8F41BD7151B003D9F63 /* SummarizerWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SummarizerWatch.entitlements; sourceTree = "<group>"; };
+		886CB8F51BD717E1003D9F63 /* rowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = rowController.swift; sourceTree = "<group>"; };
+		886CB8F71BD7197F003D9F63 /* SummarizerWatch Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "SummarizerWatch Extension.entitlements"; sourceTree = "<group>"; };
 		8879CD0E1BBC90D300042CFC /* AsyncButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncButton.swift; sourceTree = "<group>"; };
 		8879CD0F1BBC90D300042CFC /* AsyncImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		8879CD101BBC90D300042CFC /* AutoTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoTextView.swift; sourceTree = "<group>"; };
@@ -109,6 +172,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		886CB8D91BD7122B003D9F63 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		88D0CB441BB3748700C896F8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -119,6 +189,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		886CB8D11BD7122B003D9F63 /* SummarizerWatch */ = {
+			isa = PBXGroup;
+			children = (
+				886CB8F41BD7151B003D9F63 /* SummarizerWatch.entitlements */,
+				886CB8D21BD7122B003D9F63 /* Interface.storyboard */,
+				886CB8D51BD7122B003D9F63 /* Assets.xcassets */,
+				886CB8D71BD7122B003D9F63 /* Info.plist */,
+			);
+			path = SummarizerWatch;
+			sourceTree = "<group>";
+		};
+		886CB8E01BD7122B003D9F63 /* SummarizerWatch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				886CB8F71BD7197F003D9F63 /* SummarizerWatch Extension.entitlements */,
+				886CB8E11BD7122B003D9F63 /* InterfaceController.swift */,
+				886CB8F51BD717E1003D9F63 /* rowController.swift */,
+				886CB8E31BD7122B003D9F63 /* ExtensionDelegate.swift */,
+				886CB8E51BD7122B003D9F63 /* Assets.xcassets */,
+				886CB8E71BD7122B003D9F63 /* Info.plist */,
+			);
+			path = "SummarizerWatch Extension";
+			sourceTree = "<group>";
+		};
 		8879CD0D1BBC90BE00042CFC /* Spring */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +252,8 @@
 			isa = PBXGroup;
 			children = (
 				88D0CB491BB3748700C896F8 /* Summarizer */,
+				886CB8D11BD7122B003D9F63 /* SummarizerWatch */,
+				886CB8E01BD7122B003D9F63 /* SummarizerWatch Extension */,
 				88D0CB481BB3748700C896F8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -166,6 +262,8 @@
 			isa = PBXGroup;
 			children = (
 				88D0CB471BB3748700C896F8 /* Summarizer.app */,
+				886CB8D01BD7122B003D9F63 /* SummarizerWatch.app */,
+				886CB8DC1BD7122B003D9F63 /* SummarizerWatch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -173,6 +271,7 @@
 		88D0CB491BB3748700C896F8 /* Summarizer */ = {
 			isa = PBXGroup;
 			children = (
+				886CB8F31BD714FD003D9F63 /* Summarizer.entitlements */,
 				8879CD0D1BBC90BE00042CFC /* Spring */,
 				88B7F1571BD44469008EAA78 /* TableBG.png */,
 				88B7F1581BD44469008EAA78 /* PopOverBG5.png */,
@@ -201,6 +300,40 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		886CB8CF1BD7122B003D9F63 /* SummarizerWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 886CB8F11BD7122B003D9F63 /* Build configuration list for PBXNativeTarget "SummarizerWatch" */;
+			buildPhases = (
+				886CB8CE1BD7122B003D9F63 /* Resources */,
+				886CB8F01BD7122B003D9F63 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				886CB8DF1BD7122B003D9F63 /* PBXTargetDependency */,
+			);
+			name = SummarizerWatch;
+			productName = SummarizerWatch;
+			productReference = 886CB8D01BD7122B003D9F63 /* SummarizerWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		886CB8DB1BD7122B003D9F63 /* SummarizerWatch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 886CB8EF1BD7122B003D9F63 /* Build configuration list for PBXNativeTarget "SummarizerWatch Extension" */;
+			buildPhases = (
+				886CB8D81BD7122B003D9F63 /* Sources */,
+				886CB8D91BD7122B003D9F63 /* Frameworks */,
+				886CB8DA1BD7122B003D9F63 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SummarizerWatch Extension";
+			productName = "SummarizerWatch Extension";
+			productReference = 886CB8DC1BD7122B003D9F63 /* SummarizerWatch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 		88D0CB461BB3748700C896F8 /* Summarizer */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 88D0CB591BB3748700C896F8 /* Build configuration list for PBXNativeTarget "Summarizer" */;
@@ -208,10 +341,12 @@
 				88D0CB431BB3748700C896F8 /* Sources */,
 				88D0CB441BB3748700C896F8 /* Frameworks */,
 				88D0CB451BB3748700C896F8 /* Resources */,
+				886CB8F21BD7122B003D9F63 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				886CB8E91BD7122B003D9F63 /* PBXTargetDependency */,
 			);
 			name = Summarizer;
 			productName = Summarizer;
@@ -224,11 +359,36 @@
 		88D0CB3F1BB3748700C896F8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Stephen Casella";
 				TargetAttributes = {
+					886CB8CF1BD7122B003D9F63 = {
+						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = 9ZJC9RDWN7;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					886CB8DB1BD7122B003D9F63 = {
+						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = 9ZJC9RDWN7;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
 					88D0CB461BB3748700C896F8 = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = 9ZJC9RDWN7;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -246,11 +406,30 @@
 			projectRoot = "";
 			targets = (
 				88D0CB461BB3748700C896F8 /* Summarizer */,
+				886CB8CF1BD7122B003D9F63 /* SummarizerWatch */,
+				886CB8DB1BD7122B003D9F63 /* SummarizerWatch Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		886CB8CE1BD7122B003D9F63 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				886CB8D61BD7122B003D9F63 /* Assets.xcassets in Resources */,
+				886CB8D41BD7122B003D9F63 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		886CB8DA1BD7122B003D9F63 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				886CB8E61BD7122B003D9F63 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		88D0CB451BB3748700C896F8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -275,6 +454,16 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		886CB8D81BD7122B003D9F63 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				886CB8E41BD7122B003D9F63 /* ExtensionDelegate.swift in Sources */,
+				886CB8F61BD717E1003D9F63 /* rowController.swift in Sources */,
+				886CB8E21BD7122B003D9F63 /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		88D0CB431BB3748700C896F8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -317,7 +506,28 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		886CB8DF1BD7122B003D9F63 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 886CB8DB1BD7122B003D9F63 /* SummarizerWatch Extension */;
+			targetProxy = 886CB8DE1BD7122B003D9F63 /* PBXContainerItemProxy */;
+		};
+		886CB8E91BD7122B003D9F63 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 886CB8CF1BD7122B003D9F63 /* SummarizerWatch */;
+			targetProxy = 886CB8E81BD7122B003D9F63 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		886CB8D21BD7122B003D9F63 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				886CB8D31BD7122B003D9F63 /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 		88D0CB4E1BB3748700C896F8 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -337,6 +547,89 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		886CB8EB1BD7122B003D9F63 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = SummarizerWatch/SummarizerWatch.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				IBSC_MODULE = SummarizerWatch_Extension;
+				INFOPLIST_FILE = SummarizerWatch/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.scasella.Summarizer.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Summarizer/SummarizerWatch-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		886CB8EC1BD7122B003D9F63 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = SummarizerWatch/SummarizerWatch.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				IBSC_MODULE = SummarizerWatch_Extension;
+				INFOPLIST_FILE = SummarizerWatch/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.scasella.Summarizer.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Summarizer/SummarizerWatch-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		886CB8ED1BD7122B003D9F63 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "SummarizerWatch Extension/SummarizerWatch Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "SummarizerWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.scasella.Summarizer.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		886CB8EE1BD7122B003D9F63 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "SummarizerWatch Extension/SummarizerWatch Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "SummarizerWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.scasella.Summarizer.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
 		88D0CB571BB3748700C896F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -422,10 +715,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Summarizer/Summarizer.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Summarizer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.scasella.Summarizer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -433,16 +730,36 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Summarizer/Summarizer.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Summarizer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.scasella.Summarizer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		886CB8EF1BD7122B003D9F63 /* Build configuration list for PBXNativeTarget "SummarizerWatch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				886CB8ED1BD7122B003D9F63 /* Debug */,
+				886CB8EE1BD7122B003D9F63 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		886CB8F11BD7122B003D9F63 /* Build configuration list for PBXNativeTarget "SummarizerWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				886CB8EB1BD7122B003D9F63 /* Debug */,
+				886CB8EC1BD7122B003D9F63 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		88D0CB421BB3748700C896F8 /* Build configuration list for PBXProject "Summarizer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

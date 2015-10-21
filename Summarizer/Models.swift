@@ -69,7 +69,7 @@ func addTitleAndSummary(urlText: String, bookmarksSelected: Bool, tableRefresh: 
                         
                     } else {
                         
-                        bookmarkTitleArray.append("\(weatherSummary[0])".stringByReplacingOccurrencesOfString("&#039;", withString: "'").stringByReplacingOccurrencesOfString("&#39;", withString: "'"))
+                        bookmarkTitleArray.append("\(weatherSummary[0])".stringByReplacingOccurrencesOfString("&#039;", withString: "'").stringByReplacingOccurrencesOfString("&#39;", withString: "'").stringByReplacingOccurrencesOfString("&#x27;", withString: "'"))
                         NSUserDefaults.standardUserDefaults().setObject(bookmarkTitleArray, forKey: "bookmarkTitleArray")
                         if tableRefresh != nil {
                             tableRefresh!.reloadData() }
@@ -100,7 +100,7 @@ func addTitleAndSummary(urlText: String, bookmarksSelected: Bool, tableRefresh: 
                         let summary = item["summarytext"]!
                             
                          summaryCards.append(summary as! String)
-                         NSUserDefaults.standardUserDefaults().setObject(summaryCards, forKey: "summaryCards")
+                         NSUserDefaults.init(suiteName: "group.com.scasella.summarizer")!.setObject(summaryCards, forKey: "summaryCards")
                             
                             
                             dispatch_sync(dispatch_get_main_queue()){

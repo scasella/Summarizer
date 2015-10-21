@@ -276,7 +276,6 @@
                                 </state>
                                 <connections>
                                     <action selector="backPressed:" destination="Wv0-vg-sSI" eventType="touchUpInside" id="98M-zz-Io8"/>
-                                    <action selector="goPressed:" destination="Wv0-vg-sSI" eventType="touchUpInside" id="30l-Ri-tGX"/>
                                 </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="w5N-TC-9ue">
@@ -486,8 +485,8 @@
         <image name="RedFull.png" width="135" height="135"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6oY-yh-Fcw"/>
-        <segue reference="bwp-gO-Dzb"/>
         <segue reference="v9I-LL-Hzf"/>
+        <segue reference="bwp-gO-Dzb"/>
+        <segue reference="xZL-2S-5fM"/>
     </inferredMetricsTieBreakers>
 </document>

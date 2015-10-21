@@ -9,9 +9,19 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>SummarizerWatch.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>886CB8CF1BD7122B003D9F63</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>88D0CB461BB3748700C896F8</key>
 		<dict>
 			<key>primary</key>

@@ -22,8 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if NSUserDefaults.standardUserDefaults().objectForKey("bookmarkTitleArray") != nil {
             bookmarkTitleArray = NSUserDefaults.standardUserDefaults().objectForKey("bookmarkTitleArray") as! [String] }
         
-        if NSUserDefaults.standardUserDefaults().objectForKey("summaryCards") != nil {
-            summaryCards = NSUserDefaults.standardUserDefaults().objectForKey("summaryCards") as! [String] }
+        if NSUserDefaults.init(suiteName: "group.com.scasella.summarizer")!.objectForKey("summaryCards") != nil {
+            summaryCards = NSUserDefaults.init(suiteName: "group.com.scasella.summarizer")!.objectForKey("summaryCards") as! [String] }
         
         if NSUserDefaults.standardUserDefaults().objectForKey("urlArray") != nil {
             urlArray = NSUserDefaults.standardUserDefaults().objectForKey("urlArray") as! [String] }
