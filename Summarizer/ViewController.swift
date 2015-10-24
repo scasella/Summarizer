@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import WatchConnectivity
 
 
-
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, WCSessionDelegate {
     
-
+    
+    var session: WCSession!
     
     
     @IBAction func seeFullArticle(sender: AnyObject) {
@@ -41,6 +42,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet var tableView: UITableView!
     
     
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "toWebViewBlank" {
             urlForWebView = "\(homepage)"
@@ -50,28 +52,52 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
          
     }
+    
+    
+    
     override func viewDidLoad() {
-                
+        /*NSUserDefaults(suiteName: "group.com.scasella.bookmark")!.setObject(summaryCards, forKey: "summaryCardsGroup")
+        print( NSUserDefaults(suiteName: "group.com.scasella.bookmark")!.objectForKey("summaryCardsGroup"))*/
     }
+    
+    
     
     override func viewDidAppear(animated: Bool) {
         tableView.reloadData()
+        if(WCSession.isSupported()) {
+            self.session = WCSession.defaultSession()
+            self.session.delegate = self
+            self.session.activateSession()
+        } else {
+            print("not avail") }
+        
+        let dict = ["summary": summaryCards, "title": titleArray]
+        
+        session.sendMessage(dict, replyHandler: nil, errorHandler: nil)
         
     }
+    
+    
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
     }
    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
 
+    
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return summaryCards.count
     }
+    
+    
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
@@ -84,6 +110,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
       
         return cell
     }
+    
     
     
     func indexEnd(inputArray: [String]) -> Int {

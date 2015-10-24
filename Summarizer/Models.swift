@@ -47,7 +47,7 @@ func addTitleAndSummary(urlText: String, bookmarksSelected: Bool, tableRefresh: 
     
     if let url = attemptedUrl {
         
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+       // dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
         
         let task = NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) -> Void in
             
@@ -102,8 +102,7 @@ func addTitleAndSummary(urlText: String, bookmarksSelected: Bool, tableRefresh: 
                          summaryCards.append(summary as! String)
                          NSUserDefaults.standardUserDefaults().setObject(summaryCards, forKey: "summaryCards")
                             
-                            
-                            dispatch_sync(dispatch_get_main_queue()){
+                          dispatch_sync(dispatch_get_main_queue()){
                                 
                                 if loadingIndicator != nil {
                                     loadingIndicator!.hidden = true
@@ -112,6 +111,7 @@ func addTitleAndSummary(urlText: String, bookmarksSelected: Bool, tableRefresh: 
                                 
                                 if tableRefresh != nil {
                                     tableRefresh!.reloadData() }
+                                
                             }
                             
                             }}
@@ -133,7 +133,7 @@ func addTitleAndSummary(urlText: String, bookmarksSelected: Bool, tableRefresh: 
         
         task.resume()
            
-          })
+         // })
         
     } else {
         

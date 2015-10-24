@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  Summarizer
+//  testTVOS
 //
-//  Created by Stephen Casella on 9/23/15.
+//  Created by Stephen Casella on 10/10/15.
 //  Copyright © 2015 Stephen Casella. All rights reserved.
 //
 
@@ -16,24 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        if NSUserDefaults.standardUserDefaults().objectForKey("bookmarkArray") != nil {
-            bookmarkArray = NSUserDefaults.standardUserDefaults().objectForKey("bookmarkArray") as! [String] }
-        
-        if NSUserDefaults.standardUserDefaults().objectForKey("bookmarkTitleArray") != nil {
-            bookmarkTitleArray = NSUserDefaults.standardUserDefaults().objectForKey("bookmarkTitleArray") as! [String] }
-        
-        if NSUserDefaults.standardUserDefaults().objectForKey("summaryCards") != nil {
-            summaryCards = NSUserDefaults.standardUserDefaults().objectForKey("summaryCards") as! [String] }
-        
-        if NSUserDefaults.standardUserDefaults().objectForKey("urlArray") != nil {
-            urlArray = NSUserDefaults.standardUserDefaults().objectForKey("urlArray") as! [String] }
-        
-        if NSUserDefaults.standardUserDefaults().objectForKey("titleArray") != nil {
-            titleArray = NSUserDefaults.standardUserDefaults().objectForKey("titleArray") as! [String] }
-        
-        if NSUserDefaults.standardUserDefaults().objectForKey("homepage") != nil {
-            homepage = NSUserDefaults.standardUserDefaults().objectForKey("homepage") as! String }
-       
+      
+        // Override point for customization after application launch.
         return true
     }
 
@@ -43,7 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(application: UIApplication) {
-      
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     }
@@ -59,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-    
-   
+
+
 }
 

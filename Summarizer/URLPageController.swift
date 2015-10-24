@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import WatchConnectivity
 
-class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataSource, WCSessionDelegate {
+    
+    var session: WCSession!
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var urlTextField: UITextField!
     @IBOutlet weak var bookmarkArticleSelector: UISegmentedControl!
@@ -56,7 +59,7 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
                 onboardingLabel.text = "Visit your favorite websites to add articles to summarize."
                 onboardingLabel.hidden = false
             
-                } else {
+            } else {
                 
                 restoreDefaultTableView()
             }
@@ -95,6 +98,7 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
             
             addTitleAndSummary(url, bookmarksSelected: false, tableRefresh: self.tableView, loadingIndicator: loadingIndicator, buttonToHideShow: buttonToCards)
         
+            
         }
         
         onboardingLabel.hidden = true
@@ -133,6 +137,15 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if(WCSession.isSupported()) {
+            self.session = WCSession.defaultSession()
+            self.session.delegate = self
+            self.session.activateSession()
+        } else {
+            print("not avail") }
+        
+        print("loaded")
+        
         blurView.layer.masksToBounds = true
         blurView.layer.cornerRadius = 12.0
         
@@ -166,11 +179,22 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     override func viewDidAppear(animated: Bool) {
         tableView.reloadData()
+        
+        let dict = ["summary": summaryCards, "title": titleArray]
+        
+        session.sendMessage(dict, replyHandler: nil, errorHandler: nil)
+        print("fired")
+        
     }
     
     
     
     @IBAction func closePressed(sender: AnyObject) {
+        
+        let dict = ["summary": summaryCards, "title": titleArray]
+        
+        session.sendMessage(dict, replyHandler: nil, errorHandler: nil)
+          print("fired")
         
         springView.duration = 1.25
         springView.y = -1000

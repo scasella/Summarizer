@@ -11,17 +11,22 @@ import WatchConnectivity
 
 class ArticleViewController: UIViewController, UIWebViewDelegate, WCSessionDelegate {
     
+    var session: WCSession!
+    
     @IBOutlet weak var addressField: UITextField!
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var springView: SpringView!
     @IBOutlet weak var springViewParent: SpringView!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var closeButton: UIButton!
-    
-    var session: WCSession!
+  
     
     
     @IBAction func homePressed(sender: AnyObject) {
+        
+        let dict = ["summary": summaryCards, "title": titleArray]
+        
+        session.sendMessage(dict, replyHandler: nil, errorHandler: nil)
    
         springViewParent.animate()
         self.dismissViewControllerAnimated(true, completion: { () -> Void in
@@ -66,7 +71,6 @@ class ArticleViewController: UIViewController, UIWebViewDelegate, WCSessionDeleg
         closeButton.hidden = true
         addTitleAndSummary(addressField.text!, bookmarksSelected: false, tableRefresh: nil, loadingIndicator: loadingIndicator, buttonToHideShow: closeButton)
     
-
     }
     
     
@@ -75,10 +79,7 @@ class ArticleViewController: UIViewController, UIWebViewDelegate, WCSessionDeleg
       /*  if self.webView.canGoBack == true {
         self.webView.goBack()    }*/
         
-        let dict = ["summary": summaryCards, "title": titleArray]
-   
-        session.sendMessage(dict, replyHandler: nil, errorHandler: nil)
-
+       
  
     }
 
@@ -93,18 +94,28 @@ class ArticleViewController: UIViewController, UIWebViewDelegate, WCSessionDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         if(WCSession.isSupported()) {
             self.session = WCSession.defaultSession()
             self.session.delegate = self
             self.session.activateSession()
         } else {
             print("not avail") }
+        
+        let url = NSURL (string: "\(urlForWebView)");
+        let requestObj = NSURLRequest(URL: url!);
+        webView.loadRequest(requestObj);
     
-    let url = NSURL (string: "\(urlForWebView)");
-    let requestObj = NSURLRequest(URL: url!);
-    webView.loadRequest(requestObj);
+    }
     
+    
+    override func viewDidAppear(animated: Bool) {
+        
+        let dict = ["summary": summaryCards, "title": titleArray]
+        
+        session.sendMessage(dict, replyHandler: nil, errorHandler: nil)
+        print("fired")
+        
     }
     
     
