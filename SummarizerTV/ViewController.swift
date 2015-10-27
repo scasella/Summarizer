@@ -8,16 +8,15 @@
 
 import UIKit
 
-var summaryCards = [String]()
+var summaryCards = ["test"]
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    let URL_BASE = "http://api.themoviedb.org/3/movie/popular?api_key=ff743742b3b6c89feb59dfc138b4c12f"
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    let defaultSize = CGSizeMake(394, 590)
-    let focusSize = CGSizeMake(494, 690)
+    /*let defaultSize = CGSizeMake(394, 590)
+    let focusSize = CGSizeMake(494, 690)*/
     var movies = [Movie]()
     
     
@@ -25,19 +24,27 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NSUserDefaults(suiteName: "group.com.scasella.bookmark")?.synchronize()
+        
+        print(NSUserDefaults(suiteName: "group.com.scasella.bookmark")?.objectForKey("bookmarkTest"))
         /*let test = NSUserDefaults(suiteName: "group.com.scasella.bookmark")!.objectForKey("summaryCardsGroup")
         print(test)*/
         
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        downloadData()
+    
+       // downloadData()
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        collectionView.reloadData()
     }
     
     
     
-    func downloadData() {
+   /* func downloadData() {
         let url = NSURL(string: URL_BASE)!
         let request = NSURLRequest(URL: url)
         let session = NSURLSession.sharedSession()
@@ -69,7 +76,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
         
         task.resume()
-    }
+    }*/
     
     
 
@@ -89,7 +96,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 let tap = UITapGestureRecognizer(target: self, action: "tapped:")
                 tap.allowedPressTypes = [NSNumber(integer: UIPressType.Select.rawValue)]
                 cell.addGestureRecognizer(tap)
-            }
+                
+        }
+            
+            cell.largeText.selectable = true
+            cell.largeText.panGestureRecognizer.allowedTouchTypes = [NSNumber(integer: UITouchType.Indirect.rawValue)]
+            cell.largeText.preferredFocusedView
             
                        
             return cell
@@ -118,7 +130,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return movies.count
+        return 5
     }
     
     
@@ -128,36 +140,37 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     
-    
+   
     override func didUpdateFocusInContext(context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
         
         if let prev = context.previouslyFocusedView as? MovieCell {
             
             prev.movieLbl.hidden = false
-            prev.smallText.hidden = false 
-            prev.bigLabel.hidden = true
-            prev.bigText.hidden = true
+            prev.largeLbl.hidden = true
+            prev.smallText.hidden = false
+            prev.largeText.hidden = true
             
             UIView.animateWithDuration(0.1, animations: { () -> Void in
-                prev.movieImg.frame.size = self.defaultSize
+                //prev.movieImg.frame.size = self.defaultSize
             })
-           // prev.movieImg.clipsToBounds = false
+           
+            
         }
         
         if let next = context.nextFocusedView as? MovieCell {
-            
+        
             next.movieLbl.hidden = true
+            next.largeLbl.hidden = false
             next.smallText.hidden = true
-            next.bigLabel.hidden = false
-            next.bigText.hidden = false
+            next.largeText.hidden = false
             
             UIView.animateWithDuration(0.1, animations: { () -> Void in
-                next.movieImg.frame.size = self.focusSize
+                //next.movieImg.frame.size = self.focusSize
             })
-            //next.movieImg.clipsToBounds = false
+            
         }
+
     }
-    
     
 }
 

@@ -19,6 +19,7 @@ class ArticleViewController: UIViewController, UIWebViewDelegate, WCSessionDeleg
     @IBOutlet weak var springViewParent: SpringView!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var closeButton: UIButton!
+    @IBOutlet weak var addButton: UIButton!
   
     
     
@@ -26,7 +27,7 @@ class ArticleViewController: UIViewController, UIWebViewDelegate, WCSessionDeleg
         
         let dict = ["summary": summaryCards, "title": titleArray]
         
-        session.sendMessage(dict, replyHandler: nil, errorHandler: nil)
+         session.transferUserInfo(dict)
    
         springViewParent.animate()
         self.dismissViewControllerAnimated(true, completion: { () -> Void in
@@ -51,6 +52,11 @@ class ArticleViewController: UIViewController, UIWebViewDelegate, WCSessionDeleg
     
 
     @IBAction func goPressed(sender: AnyObject) {
+        
+        addButton.enabled = false
+        loadingIndicator.hidden = false
+        closeButton.hidden = true
+        
         var url: NSURL?
         
         if addressField.text?.rangeOfString("http://") != nil{
@@ -69,6 +75,7 @@ class ArticleViewController: UIViewController, UIWebViewDelegate, WCSessionDeleg
     @IBAction func addPressed(sender: AnyObject) {
         loadingIndicator.hidden = false
         closeButton.hidden = true
+        addButton.enabled = false
         addTitleAndSummary(addressField.text!, bookmarksSelected: false, tableRefresh: nil, loadingIndicator: loadingIndicator, buttonToHideShow: closeButton)
     
     }
@@ -76,10 +83,10 @@ class ArticleViewController: UIViewController, UIWebViewDelegate, WCSessionDeleg
     
     
     @IBAction func backPressed(sender: AnyObject) {
-      /*  if self.webView.canGoBack == true {
-        self.webView.goBack()    }*/
+    if self.webView.canGoBack == true {
+        self.webView.goBack()
         
-       
+        }
  
     }
 
@@ -105,6 +112,10 @@ class ArticleViewController: UIViewController, UIWebViewDelegate, WCSessionDeleg
         let url = NSURL (string: "\(urlForWebView)");
         let requestObj = NSURLRequest(URL: url!);
         webView.loadRequest(requestObj);
+        
+        loadingIndicator.hidden = false
+        closeButton.hidden = true
+        addButton.enabled = false 
     
     }
     
@@ -113,8 +124,7 @@ class ArticleViewController: UIViewController, UIWebViewDelegate, WCSessionDeleg
         
         let dict = ["summary": summaryCards, "title": titleArray]
         
-        session.sendMessage(dict, replyHandler: nil, errorHandler: nil)
-        print("fired")
+         session.transferUserInfo(dict)
         
     }
     
@@ -122,6 +132,10 @@ class ArticleViewController: UIViewController, UIWebViewDelegate, WCSessionDeleg
     
     func webViewDidFinishLoad(webView: UIWebView) {
         let currentURL : NSString = (webView.request?.URL!.absoluteString)!
+        loadingIndicator.hidden = true
+        addButton.enabled = true
+        closeButton.hidden = false
+        
         addressField.text = "\(currentURL)"
     }
     

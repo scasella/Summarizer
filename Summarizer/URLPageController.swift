@@ -182,8 +182,8 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         let dict = ["summary": summaryCards, "title": titleArray]
         
-        session.sendMessage(dict, replyHandler: nil, errorHandler: nil)
-        print("fired")
+        session.transferUserInfo(dict)
+        
         
     }
     
@@ -193,8 +193,7 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         let dict = ["summary": summaryCards, "title": titleArray]
         
-        session.sendMessage(dict, replyHandler: nil, errorHandler: nil)
-          print("fired")
+        session.transferUserInfo(dict)
         
         springView.duration = 1.25
         springView.y = -1000
@@ -206,8 +205,7 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
                self.performSegueWithIdentifier("toWebView", sender: self)
             }
         }
-        self.dismissViewControllerAnimated(true, completion: { () -> Void in
-        })
+        
 
     }
     

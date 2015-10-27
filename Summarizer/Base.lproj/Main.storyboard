@@ -147,7 +147,7 @@
                                     <color key="titleColor" red="0.1843137255" green="0.25490196079999999" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="vtg-0o-lRL" kind="presentation" identifier="toURLPage" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="Iya-No-yjJ"/>
+                                    <segue destination="vtg-0o-lRL" kind="presentation" identifier="toURLPage" animates="NO" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="Iya-No-yjJ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Isl-MV-hua">
@@ -241,7 +241,7 @@
                                     <color key="titleColor" red="0.1960784314" green="0.20392156859999999" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="vtg-0o-lRL" kind="presentation" identifier="toURLPage" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="bwp-gO-Dzb"/>
+                                    <segue destination="vtg-0o-lRL" kind="modal" identifier="toURLPage" animates="NO" modalPresentationStyle="currentContext" modalTransitionStyle="crossDissolve" id="bwp-gO-Dzb"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Bny-Qo-E9Q">
@@ -292,13 +292,14 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="addButton" destination="876-WK-drJ" id="Li7-mF-WVk"/>
                         <outlet property="addressField" destination="Bny-Qo-E9Q" id="6c8-Qc-C6T"/>
                         <outlet property="closeButton" destination="hFb-JE-NTb" id="Zsg-kA-77B"/>
                         <outlet property="loadingIndicator" destination="w5N-TC-9ue" id="yua-mS-WJy"/>
                         <outlet property="springView" destination="7hq-Vd-3Dv" id="QU1-ce-rJ1"/>
                         <outlet property="springViewParent" destination="hRb-Dn-hUF" id="Pcf-Vi-Zfi"/>
                         <outlet property="webView" destination="zXD-mS-9rU" id="G5j-qF-Ge3"/>
-                        <segue destination="BYZ-38-t0r" kind="showDetail" identifier="toCards" animates="NO" id="xZL-2S-5fM"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="toCards" animates="NO" action="showDetailViewController:sender:" id="xZL-2S-5fM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gfb-su-Gio" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -485,8 +486,8 @@
         <image name="RedFull.png" width="135" height="135"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZQ4-z1-D9d"/>
-        <segue reference="xZL-2S-5fM"/>
+        <segue reference="v9I-LL-Hzf"/>
         <segue reference="bwp-gO-Dzb"/>
+        <segue reference="6oY-yh-Fcw"/>
     </inferredMetricsTieBreakers>
 </document>

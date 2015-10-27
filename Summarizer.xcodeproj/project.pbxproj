@@ -62,6 +62,8 @@
 		8884CEAB1BD9E8E100461322 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8884CEA61BD9E8E100461322 /* Main.storyboard */; };
 		8884CEAC1BD9E8E100461322 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8884CEA71BD9E8E100461322 /* MovieCell.swift */; };
 		88A40BF81BB700BA00AB9149 /* URLPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A40BF71BB700BA00AB9149 /* URLPageController.swift */; };
+		88B45C151BDF06D200B6EDB8 /* FullArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B45C141BDF06D200B6EDB8 /* FullArticleCell.swift */; };
+		88B45C171BDF072100B6EDB8 /* FullArticleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B45C161BDF072100B6EDB8 /* FullArticleController.swift */; };
 		88B7F1591BD44469008EAA78 /* TableBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 88B7F1571BD44469008EAA78 /* TableBG.png */; };
 		88B7F15A1BD44469008EAA78 /* PopOverBG5.png in Resources */ = {isa = PBXBuildFile; fileRef = 88B7F1581BD44469008EAA78 /* PopOverBG5.png */; };
 		88D0CB4B1BB3748700C896F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D0CB4A1BB3748700C896F8 /* AppDelegate.swift */; };
@@ -181,6 +183,8 @@
 		8884CEA71BD9E8E100461322 /* MovieCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		8884CEAD1BD9E95700461322 /* SummarizerTV-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SummarizerTV-Bridging-Header.h"; sourceTree = "<group>"; };
 		88A40BF71BB700BA00AB9149 /* URLPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLPageController.swift; sourceTree = "<group>"; };
+		88B45C141BDF06D200B6EDB8 /* FullArticleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullArticleCell.swift; sourceTree = "<group>"; };
+		88B45C161BDF072100B6EDB8 /* FullArticleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullArticleController.swift; sourceTree = "<group>"; };
 		88B7F1571BD44469008EAA78 /* TableBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TableBG.png; sourceTree = "<group>"; };
 		88B7F1581BD44469008EAA78 /* PopOverBG5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PopOverBG5.png; sourceTree = "<group>"; };
 		88D0CB471BB3748700C896F8 /* Summarizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Summarizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -289,6 +293,8 @@
 				8884CEA51BD9E8E100461322 /* Movie.swift */,
 				8884CEAD1BD9E95700461322 /* SummarizerTV-Bridging-Header.h */,
 				8884CEA61BD9E8E100461322 /* Main.storyboard */,
+				88B45C161BDF072100B6EDB8 /* FullArticleController.swift */,
+				88B45C141BDF06D200B6EDB8 /* FullArticleCell.swift */,
 				8884CEA71BD9E8E100461322 /* MovieCell.swift */,
 				8884CEA11BD9E82600461322 /* SummarizerTV.entitlements */,
 				8884CE9B1BD9E82000461322 /* Assets.xcassets */,
@@ -456,7 +462,7 @@
 								enabled = 0;
 							};
 							com.apple.iCloud = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -468,7 +474,7 @@
 								enabled = 1;
 							};
 							com.apple.iCloud = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -480,7 +486,7 @@
 								enabled = 1;
 							};
 							com.apple.iCloud = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -577,9 +583,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8884CEA91BD9E8E100461322 /* ViewController.swift in Sources */,
+				88B45C151BDF06D200B6EDB8 /* FullArticleCell.swift in Sources */,
 				8884CEA81BD9E8E100461322 /* AppDelegate.swift in Sources */,
 				8884CEAC1BD9E8E100461322 /* MovieCell.swift in Sources */,
 				8884CEAA1BD9E8E100461322 /* Movie.swift in Sources */,
+				88B45C171BDF072100B6EDB8 /* FullArticleController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -714,7 +722,6 @@
 		886CB8ED1BD7122B003D9F63 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = "SummarizerWatch Extension/SummarizerWatch Extension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "SummarizerWatch Extension/Info.plist";
@@ -732,7 +739,6 @@
 		886CB8EE1BD7122B003D9F63 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = "SummarizerWatch Extension/SummarizerWatch Extension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "SummarizerWatch Extension/Info.plist";
