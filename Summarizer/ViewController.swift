@@ -59,9 +59,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let tester = ["Test1", "test2"]
         NSUserDefaults(suiteName: "group.com.scasella.bookmark")?.setBool(true, forKey: "bookmarkTest")
         
-       print(NSUserDefaults(suiteName: "group.com.scasella.bookmark")?.objectForKey("bookmarkTest"))
+         NSUserDefaults(suiteName: "group.com.scasella.bookmark")?.synchronize()
         
-        NSUserDefaults(suiteName: "group.com.scasella.bookmark")!.synchronize()
+       print(NSUserDefaults(suiteName: "group.com.scasella.bookmark")?.objectForKey("bookmarkTest"))
+       
+        
  
     }
     

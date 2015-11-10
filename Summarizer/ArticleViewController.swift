@@ -128,6 +128,11 @@ class ArticleViewController: UIViewController, UIWebViewDelegate, WCSessionDeleg
         
     }
     
+    func webViewDidStartLoad(webView: UIWebView) {
+        addButton.enabled = false
+        loadingIndicator.hidden = false
+        closeButton.hidden = true
+    }
     
     
     func webViewDidFinishLoad(webView: UIWebView) {

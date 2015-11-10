@@ -41,7 +41,7 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
             
             if bookmarkTitleArray.count == 0 {
                 tableView.hidden = true
-                onboardingLabel.text = "Add websites that post articles you like to read. Click the text box below."
+                onboardingLabel.text = "Add websites that post articles you like to read."
                 onboardingLabel.hidden = false
                 
                 } else {
@@ -195,7 +195,7 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         session.transferUserInfo(dict)
         
-        springView.duration = 1.25
+        springView.duration = 0.5
         springView.y = -1000
         springView.animateToNext() {
             
