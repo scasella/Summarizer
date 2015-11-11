@@ -16,6 +16,7 @@ class MovieCell: UICollectionViewCell {
     @IBOutlet weak var smallText: UITextView!
     @IBOutlet weak var largeLbl: UILabel!
     @IBOutlet weak var largeText: UITextView!
+    
     /*
     func configureCell(movie: Movie) {
         if let title = movie.title {

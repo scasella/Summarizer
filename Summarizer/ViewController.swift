@@ -16,6 +16,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var session: WCSession!
     
     
+    @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBAction func seeFullArticle(sender: AnyObject) {
         urlForWebView = sender.restorationIdentifier as String!
         self.performSegueWithIdentifier("toWebView", sender: sender)
@@ -24,6 +25,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
   
     @IBAction func deleteCard(sender: AnyObject) {
+        @IBOutlet weak var segmentControl: UISegmentedControl!
         
         let customIndexPath = urlArray.indexOf(sender.restorationIdentifier as String!)
         

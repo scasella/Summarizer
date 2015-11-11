@@ -11,14 +11,17 @@ import UIKit
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     var summaryCards = [String]()
+    var summaryTitles = [String]()
     var titleArray = [String]()
     var linkArray = [String]()
     
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    /*let defaultSize = CGSizeMake(394, 590)
-    let focusSize = CGSizeMake(494, 690)*/
+    @IBOutlet weak var segmentControl: UISegmentedControl!
+    
+    let defaultSize = CGSizeMake(494, 690)
+    let focusSize = CGSizeMake(544, 740)
     var movies = [Movie]()
     
     
@@ -26,8 +29,14 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let segAttributes: NSDictionary = [
+            NSForegroundColorAttributeName: UIColor.whiteColor()
+        ]
+
         
-        print(NSUserDefaults(suiteName: "group.com.scasella.bookmark")?.objectForKey("bookmarkTest"))
+        segmentControl.setTitleTextAttributes(segAttributes as [NSObject : AnyObject], forState: UIControlState.Normal)
+        
+        //print(NSUserDefaults(suiteName: "group.com.scasella.bookmark")?.objectForKey("bookmarkTest"))
     
         /*let test = NSUserDefaults(suiteName: "group.com.scasella.bookmark")!.objectForKey("summaryCardsGroup")
         print(test)*/
@@ -35,20 +44,19 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         collectionView.delegate = self
         collectionView.dataSource = self
         
-    
+       downloadLinks()
        // downloadData()
         // Do any additional setup after loading the view, typically from a nib.
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        downloadLinks()
     }
     
     
     
     func downloadLinks() {
+        
+        linkArray.removeAll()
+        titleArray.removeAll()
       
-        let url = NSURL(string: "https://api.import.io/store/data/2694348a-6889-469b-b1ce-cbda6c13cf15/_query?input/webpage/url=http%3A%2F%2Fnews.google.com&_user=269d78c6-495d-43df-899d-47320fc07fe4&_apikey=269d78c6495d43df899d47320fc07fe4886fa6efe4d7561df8557e1696cb76a1fef8f22d1807eda04e3cf5335799c8a1920d4d62f0801e9f5ecdb4b5901f7f4f5fa653f59f1b71fe22582aea9acc9f69")!
+        let url = NSURL(string: "https://api.import.io/store/data/a7ad8327-390c-4de5-947e-d1e17809186f/_query?input/webpage/url=http%3A%2F%2Fnews.google.com%2F%3Fsdm%3DTEXT%26authuser%3D0&_user=269d78c6-495d-43df-899d-47320fc07fe4&_apikey=269d78c6495d43df899d47320fc07fe4886fa6efe4d7561df8557e1696cb76a1fef8f22d1807eda04e3cf5335799c8a1920d4d62f0801e9f5ecdb4b5901f7f4f5fa653f59f1b71fe22582aea9acc9f69")!
         let request = NSURLRequest(URL: url)
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) {
@@ -63,9 +71,14 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                       
                         for item in items {
                             
-                            let summary = item["articleesctd_link"]
+                            let title = item["title"]
                         
-                            self.linkArray.append(summary! as! String)
+                            self.linkArray.append(title! as! String)
+                            
+                            
+                            let titleName = item["title/_text"]
+                            
+                            self.titleArray.append(titleName! as! String)
                         }
                         
                       
@@ -91,7 +104,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
    func downloadData() {
     for linkObj in linkArray {
         
-        let task = NSURLSession.sharedSession().dataTaskWithURL(NSURL(string: linkObj.stringByRemovingPercentEncoding!)!) { (data, response, error) -> Void in
+       /* let task = NSURLSession.sharedSession().dataTaskWithURL(NSURL(string: linkObj.stringByRemovingPercentEncoding!)!) { (data, response, error) -> Void in
             
             if let urlContent = data {
                 
@@ -108,7 +121,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                     
                         self.titleArray.append("\(weatherSummary[0])".stringByReplacingOccurrencesOfString("&#039;", withString: "'").stringByReplacingOccurrencesOfString("&#39;", withString: "'").stringByReplacingOccurrencesOfString("&#x27;", withString: "'"))
                         NSUserDefaults.standardUserDefaults().setObject(self.titleArray, forKey: "titleArray")
-                }
+                }*/
         /*let encodedURL = linkObj.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())!*/
         
         let mappedURLString = "https://api.import.io/store/data/13523395-b0a2-4791-92e1-0c609717b53a/_query?input/url=" + linkObj + "&_user=269d78c6-495d-43df-899d-47320fc07fe4&_apikey=269d78c6495d43df899d47320fc07fe4886fa6efe4d7561df8557e1696cb76a1fef8f22d1807eda04e3cf5335799c8a1920d4d62f0801e9f5ecdb4b5901f7f4f5fa653f59f1b71fe22582aea9acc9f69"
@@ -128,7 +141,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                     let summary = item["summarytext"]!
                     
                     self.summaryCards.append(summary as! String)
-                    NSUserDefaults.standardUserDefaults().setObject(self.summaryCards, forKey: "summaryCards")
+                    //NSUserDefaults.standardUserDefaults().setObject(self.summaryCards, forKey: "summaryCards")
+                    
+                    self.summaryTitles.append(titleArray[linkArray.indexOf(linkObj)!])
                     
                     dispatch_sync(dispatch_get_main_queue()){
                         
@@ -153,13 +168,13 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
     }
     
-    }
+    /*}
     
     task.resume()
     
     // })
     
-}
+}*/
 
 
 }
@@ -193,8 +208,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             cell.smallText.text = summaryCards[indexPath.row]
             cell.largeText.text = summaryCards[indexPath.row]
             
-            cell.movieLbl.text = titleArray[indexPath.row]
-            cell.largeLbl.text = titleArray[indexPath.row]
+            cell.movieLbl.text = summaryTitles[indexPath.row]
+            cell.largeLbl.text = summaryTitles[indexPath.row]
+            
+            cell.movieImg.layer.cornerRadius = 18.0
                        
             return cell
             
@@ -236,28 +253,46 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     override func didUpdateFocusInContext(context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
         
         if let prev = context.previouslyFocusedView as? MovieCell {
+           
+            prev.movieLbl.alpha = 0
+            prev.largeLbl.alpha = 0
+            prev.smallText.alpha = 0
+            prev.largeText.alpha = 0
             
             prev.movieLbl.hidden = false
             prev.largeLbl.hidden = true
             prev.smallText.hidden = false
             prev.largeText.hidden = true
             
-            UIView.animateWithDuration(0.1, animations: { () -> Void in
-                //prev.movieImg.frame.size = self.defaultSize
+            UIView.animateWithDuration(0.5, animations: { () -> Void in
+                prev.movieLbl.alpha = 1
+                prev.largeLbl.alpha = 1
+                prev.smallText.alpha = 1
+                prev.largeText.alpha = 1
+                prev.movieImg.frame.size = self.defaultSize
             })
            
             
         }
         
         if let next = context.nextFocusedView as? MovieCell {
-        
+            
+            next.movieLbl.alpha = 0
+            next.largeLbl.alpha = 0
+            next.smallText.alpha = 0
+            next.largeText.alpha = 0
+            
             next.movieLbl.hidden = true
             next.largeLbl.hidden = false
             next.smallText.hidden = true
             next.largeText.hidden = false
             
-            UIView.animateWithDuration(0.1, animations: { () -> Void in
-                //next.movieImg.frame.size = self.focusSize
+            UIView.animateWithDuration(0.5, animations: { () -> Void in
+                next.movieLbl.alpha = 1
+                next.largeLbl.alpha = 1
+                next.smallText.alpha = 1
+                next.largeText.alpha = 1
+                next.movieImg.frame.size = self.focusSize
             })
             
         }
