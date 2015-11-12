@@ -45,7 +45,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         collectionView.dataSource = self
         
        downloadLinks()
-       // downloadData()
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -82,27 +82,29 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                         }
                         
                       
-                       dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-                                  self.downloadData()
-                        })
+                      // dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+                        
+                      //  })
                     }
                     
                     
                 } catch {
                     
                 }
+              self.downloadData()
             }
         }
         
         task.resume()
  
-      
+    
     }
     
     
     
    func downloadData() {
-    for linkObj in linkArray {
+    //dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+    for linkObj in self.linkArray {
         
        /* let task = NSURLSession.sharedSession().dataTaskWithURL(NSURL(string: linkObj.stringByRemovingPercentEncoding!)!) { (data, response, error) -> Void in
             
@@ -143,7 +145,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                     self.summaryCards.append(summary as! String)
                     //NSUserDefaults.standardUserDefaults().setObject(self.summaryCards, forKey: "summaryCards")
                     
-                    self.summaryTitles.append(titleArray[linkArray.indexOf(linkObj)!])
+                    self.summaryTitles.append(self.titleArray[self.linkArray.indexOf(linkObj)!])
                     
                     dispatch_sync(dispatch_get_main_queue()){
                         
@@ -175,7 +177,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     // })
     
 }*/
-
+//})
 
 }
 
@@ -253,47 +255,53 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     override func didUpdateFocusInContext(context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
         
         if let prev = context.previouslyFocusedView as? MovieCell {
-           
+          /*
             prev.movieLbl.alpha = 0
             prev.largeLbl.alpha = 0
             prev.smallText.alpha = 0
-            prev.largeText.alpha = 0
+            prev.largeText.alpha = 0*/
             
             prev.movieLbl.hidden = false
             prev.largeLbl.hidden = true
             prev.smallText.hidden = false
             prev.largeText.hidden = true
             
-            UIView.animateWithDuration(0.5, animations: { () -> Void in
-                prev.movieLbl.alpha = 1
+           // UIView.animateWithDuration(0.5, animations: { () -> Void in
+               /* prev.movieLbl.alpha = 1
                 prev.largeLbl.alpha = 1
                 prev.smallText.alpha = 1
-                prev.largeText.alpha = 1
+                prev.largeText.alpha = 1 */
                 prev.movieImg.frame.size = self.defaultSize
-            })
+                prev.movieImg.layer.shadowOpacity = 0.0
+          //  })
            
             
         }
         
         if let next = context.nextFocusedView as? MovieCell {
             
-            next.movieLbl.alpha = 0
+           /* next.movieLbl.alpha = 0
             next.largeLbl.alpha = 0
             next.smallText.alpha = 0
-            next.largeText.alpha = 0
+            next.largeText.alpha = 0 */
             
             next.movieLbl.hidden = true
             next.largeLbl.hidden = false
             next.smallText.hidden = true
             next.largeText.hidden = false
             
-            UIView.animateWithDuration(0.5, animations: { () -> Void in
+           /* UIView.animateWithDuration(0.5, animations: { () -> Void in
                 next.movieLbl.alpha = 1
                 next.largeLbl.alpha = 1
                 next.smallText.alpha = 1
-                next.largeText.alpha = 1
+                next.largeText.alpha = 1 */
                 next.movieImg.frame.size = self.focusSize
-            })
+            next.movieImg.layer.shadowColor = UIColor.blackColor().CGColor
+            next.movieImg.layer.shadowOffset = CGSize(width: 0.0, height: 8)
+                next.movieImg.layer.shadowRadius = CGFloat(15.0)
+            next.movieImg.layer.shadowOpacity = 0.50
+            
+           // })
             
         }
 

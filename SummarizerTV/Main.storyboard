@@ -22,12 +22,12 @@
                                 <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vmo-fh-XDC">
-                                <rect key="frame" x="0.0" y="0.0" width="1920" height="171"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1920" height="203"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.18431372549019609" green="0.25490196078431371" blue="0.34509803921568627" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sGz-o0-k5l">
-                                <rect key="frame" x="0.0" y="157" width="1920" height="898"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sGz-o0-k5l">
+                                <rect key="frame" x="0.0" y="211" width="1920" height="869"/>
                                 <animations/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="q87-5g-gHS">
                                     <size key="itemSize" width="602" height="749"/>
@@ -37,7 +37,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MovieCell" id="GcI-bi-o6e" customClass="MovieCell" customModule="SummarizerTV" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="75" width="602" height="749"/>
+                                        <rect key="frame" x="0.0" y="60" width="602" height="749"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="602" height="749"/>
@@ -94,7 +94,7 @@
                                 </cells>
                             </collectionView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="VXn-ZI-o8W">
-                                <rect key="frame" x="76" y="51" width="1769" height="70"/>
+                                <rect key="frame" x="76" y="104" width="1769" height="70"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <segments>
@@ -110,6 +110,13 @@
                                 </segments>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NewsWrap" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aM9-vg-vzG">
+                                <rect key="frame" x="783" y="0.0" width="354" height="103"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="52"/>
+                                <color key="textColor" red="0.92941176469999998" green="0.29411764709999999" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
