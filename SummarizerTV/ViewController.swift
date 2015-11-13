@@ -10,22 +10,31 @@ import UIKit
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
+    
     var summaryCards = [String]()
     var summaryTitles = [String]()
     var titleArray = [String]()
     var linkArray = [String]()
+    var providerArray = [String]()
+    var teaserArray = [String]()
+    
+    var segueToggle = false
+    
     
     
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var segmentControl: UISegmentedControl!
     
-    let defaultSize = CGSizeMake(494, 690)
-    let focusSize = CGSizeMake(544, 740)
-    var movies = [Movie]()
-    
+    let imgDefaultSize = CGSizeMake(594, 290)
+    let imgFocusSize = CGSizeMake(644, 340)
+    let fieldDefaultSize = CGSizeMake(577, 159)
+    let fieldFocusSize = CGSizeMake(650, 195)
+    let titleDefaultSize = CGSizeMake(577, 136)
+    let titleFocusSize = CGSizeMake(650, 136)
     
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,16 +42,19 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             NSForegroundColorAttributeName: UIColor.whiteColor()
         ]
 
-        
         segmentControl.setTitleTextAttributes(segAttributes as [NSObject : AnyObject], forState: UIControlState.Normal)
-        
-        //print(NSUserDefaults(suiteName: "group.com.scasella.bookmark")?.objectForKey("bookmarkTest"))
-    
-        /*let test = NSUserDefaults(suiteName: "group.com.scasella.bookmark")!.objectForKey("summaryCardsGroup")
-        print(test)*/
         
         collectionView.delegate = self
         collectionView.dataSource = self
+
+        linkArray.removeAll()
+        titleArray.removeAll()
+        summaryCards.removeAll()
+        summaryTitles.removeAll()
+        titleArray.removeAll()
+        linkArray.removeAll()
+        providerArray.removeAll()
+        teaserArray.removeAll()
         
        downloadLinks()
         
@@ -52,10 +64,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     
     func downloadLinks() {
-        
-        linkArray.removeAll()
-        titleArray.removeAll()
-      
+       
         let url = NSURL(string: "https://api.import.io/store/data/a7ad8327-390c-4de5-947e-d1e17809186f/_query?input/webpage/url=http%3A%2F%2Fnews.google.com%2F%3Fsdm%3DTEXT%26authuser%3D0&_user=269d78c6-495d-43df-899d-47320fc07fe4&_apikey=269d78c6495d43df899d47320fc07fe4886fa6efe4d7561df8557e1696cb76a1fef8f22d1807eda04e3cf5335799c8a1920d4d62f0801e9f5ecdb4b5901f7f4f5fa653f59f1b71fe22582aea9acc9f69")!
         let request = NSURLRequest(URL: url)
         let session = NSURLSession.sharedSession()
@@ -75,12 +84,26 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                         
                             self.linkArray.append(title! as! String)
                             
-                            
                             let titleName = item["title/_text"]
                             
                             self.titleArray.append(titleName! as! String)
+                            
+                            let provider = item["provider"]
+                            
+                            self.providerArray.append(provider! as! String)
+                            
+                            let teaser = item["teaser"]
+                            
+                            self.teaserArray.append(teaser! as! String)
+
                         }
                         
+                        dispatch_sync(dispatch_get_main_queue()){
+
+                        
+                        self.collectionView.reloadData()
+                           
+                        }
                       
                       // dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
                         
@@ -91,20 +114,20 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 } catch {
                     
                 }
-              self.downloadData()
+             // self.downloadData()
             }
         }
         
         task.resume()
- 
     
     }
     
     
     
-   func downloadData() {
+    func downloadData(linkObj: String) {
+  
     //dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-    for linkObj in self.linkArray {
+   
         
        /* let task = NSURLSession.sharedSession().dataTaskWithURL(NSURL(string: linkObj.stringByRemovingPercentEncoding!)!) { (data, response, error) -> Void in
             
@@ -147,16 +170,17 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                     
                     self.summaryTitles.append(self.titleArray[self.linkArray.indexOf(linkObj)!])
                     
-                    dispatch_sync(dispatch_get_main_queue()){
-                        
+                    //dispatch_sync(dispatch_get_main_queue()){
+                        print(summaryCards)
+                    
                       /*  if loadingIndicator != nil {
                             loadingIndicator!.hidden = true
                             buttonToHideShow!.hidden = false
                         }*/
                         
-                        self.collectionView.reloadData()
+                        //self.collectionView.reloadData()
                         
-                    }
+                    //}
                     
                 }}
             
@@ -168,7 +192,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
             
         
-    }
+    
     
     /*}
     
@@ -202,17 +226,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 cell.addGestureRecognizer(tap)
                 
         }
+          
+            cell.smallText.text = teaserArray[indexPath.row]
             
-            cell.largeText.selectable = true
-            cell.largeText.panGestureRecognizer.allowedTouchTypes = [NSNumber(integer: UITouchType.Indirect.rawValue)]
-            cell.largeText.preferredFocusedView
-            
-            cell.smallText.text = summaryCards[indexPath.row]
-            cell.largeText.text = summaryCards[indexPath.row]
-            
-            cell.movieLbl.text = summaryTitles[indexPath.row]
-            cell.largeLbl.text = summaryTitles[indexPath.row]
-            
+            cell.movieLbl.text = titleArray[indexPath.row]
+           
             cell.movieImg.layer.cornerRadius = 18.0
                        
             return cell
@@ -227,8 +245,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     
     func tapped(gesture: UITapGestureRecognizer) {
-        if let _ = gesture.view as? MovieCell {
-            print("load next view controller")
+        if let cell = gesture.view as? MovieCell {
+           
+        print("clickled")
         }
     }
 
@@ -241,67 +260,54 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return summaryCards.count
+        return titleArray.count
     }
     
     
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSizeMake(650, 750 )
+
+       
+            return CGSizeMake(680, 300)
     }
     
     
    
     override func didUpdateFocusInContext(context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
         
+       // segueToggle = false
+        //collectionView.reloadData()
+        
         if let prev = context.previouslyFocusedView as? MovieCell {
-          /*
-            prev.movieLbl.alpha = 0
-            prev.largeLbl.alpha = 0
-            prev.smallText.alpha = 0
-            prev.largeText.alpha = 0*/
+        
             
-            prev.movieLbl.hidden = false
-            prev.largeLbl.hidden = true
-            prev.smallText.hidden = false
-            prev.largeText.hidden = true
-            
-           // UIView.animateWithDuration(0.5, animations: { () -> Void in
-               /* prev.movieLbl.alpha = 1
-                prev.largeLbl.alpha = 1
-                prev.smallText.alpha = 1
-                prev.largeText.alpha = 1 */
-                prev.movieImg.frame.size = self.defaultSize
+           UIView.animateWithDuration(0.5, animations: { () -> Void in
+        
+                prev.movieImg.frame.size = self.imgDefaultSize
                 prev.movieImg.layer.shadowOpacity = 0.0
-          //  })
+            
+                 prev.smallText.frame.size = self.fieldDefaultSize
+                prev.movieLbl.frame.size = self.titleDefaultSize
+           })
            
             
         }
         
         if let next = context.nextFocusedView as? MovieCell {
+           
             
-           /* next.movieLbl.alpha = 0
-            next.largeLbl.alpha = 0
-            next.smallText.alpha = 0
-            next.largeText.alpha = 0 */
-            
-            next.movieLbl.hidden = true
-            next.largeLbl.hidden = false
-            next.smallText.hidden = true
-            next.largeText.hidden = false
-            
-           /* UIView.animateWithDuration(0.5, animations: { () -> Void in
-                next.movieLbl.alpha = 1
-                next.largeLbl.alpha = 1
-                next.smallText.alpha = 1
-                next.largeText.alpha = 1 */
-                next.movieImg.frame.size = self.focusSize
+            UIView.animateWithDuration(0.5, animations: { () -> Void in
+                
+            next.movieImg.frame.size = self.imgFocusSize
+            next.movieLbl.frame.size = self.titleFocusSize
+            next.smallText.frame.size = self.fieldFocusSize
+                
             next.movieImg.layer.shadowColor = UIColor.blackColor().CGColor
             next.movieImg.layer.shadowOffset = CGSize(width: 0.0, height: 8)
-                next.movieImg.layer.shadowRadius = CGFloat(15.0)
+            next.movieImg.layer.shadowRadius = CGFloat(15.0)
             next.movieImg.layer.shadowOpacity = 0.50
             
-           // })
+          })
             
         }
 

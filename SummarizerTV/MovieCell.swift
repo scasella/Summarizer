@@ -13,9 +13,8 @@ class MovieCell: UICollectionViewCell {
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var movieImg: UIImageView!
     @IBOutlet weak var movieLbl: UILabel!
-    @IBOutlet weak var smallText: UITextView!
-    @IBOutlet weak var largeLbl: UILabel!
-    @IBOutlet weak var largeText: UITextView!
+    @IBOutlet weak var smallText: UILabel!
+
     
     /*
     func configureCell(movie: Movie) {
