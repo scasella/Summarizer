@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
     var summaryCards = [String]()
@@ -19,6 +19,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var teaserArray = [String]()
     
     var segueToggle = false
+    @IBOutlet weak var tableView: UITableView!
     
     
     
@@ -43,9 +44,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         ]
 
         segmentControl.setTitleTextAttributes(segAttributes as [NSObject : AnyObject], forState: UIControlState.Normal)
-        
-        collectionView.delegate = self
-        collectionView.dataSource = self
 
         linkArray.removeAll()
         titleArray.removeAll()
@@ -101,7 +99,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                         dispatch_sync(dispatch_get_main_queue()){
 
                         
-                        self.collectionView.reloadData()
+                        self.tableView.reloadData()
                            
                         }
                       
@@ -215,9 +213,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
 
 
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        
-        if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MovieCell", forIndexPath: indexPath) as? MovieCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+
+        if let cell = tableView.dequeueReusableCellWithIdentifier("MovieCell", forIndexPath: indexPath) as? MovieCell {
            
        
             if cell.gestureRecognizers?.count == nil {
@@ -227,11 +225,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 
         }
           
-            cell.smallText.text = teaserArray[indexPath.row]
-            
             cell.movieLbl.text = titleArray[indexPath.row]
-           
-            cell.movieImg.layer.cornerRadius = 18.0
                        
             return cell
             
@@ -245,33 +239,41 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     
     func tapped(gesture: UITapGestureRecognizer) {
-        if let cell = gesture.view as? MovieCell {
+        if let _ = gesture.view as? MovieCell {
            
         print("clickled")
         }
     }
 
     
-    
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    
-    
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return titleArray.count
     }
     
     
-    
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-
-       
-            return CGSizeMake(680, 300)
+    func tableView(tableView: UITableView, didUpdateFocusInContext context: UITableViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
+         if let next = context.nextFocusedView as? MovieCell {
+            
+            let views = UIView()
+            
+            views.backgroundColor = UIColor.clearColor()
+         
+            next.selectedBackgroundView = views
+            
+            next.movieLbl.frame.size = CGSizeMake(868, 212)
+            //next.movieLbl.layer.transform = x
+            next.movieLbl.font = UIFont.systemFontOfSize(CGFloat(48.0))
+            
+        }
+        
+          if let prev = context.previouslyFocusedView as? MovieCell {
+            prev.movieLbl.frame.size = CGSizeMake(668, 212)
+            prev.movieLbl.font = UIFont.systemFontOfSize(CGFloat(39.0))
+        }
     }
     
     
+    /*
    
     override func didUpdateFocusInContext(context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
         
@@ -283,10 +285,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             
            UIView.animateWithDuration(0.5, animations: { () -> Void in
         
-                prev.movieImg.frame.size = self.imgDefaultSize
+               /* prev.movieImg.frame.size = self.imgDefaultSize
                 prev.movieImg.layer.shadowOpacity = 0.0
             
-                 prev.smallText.frame.size = self.fieldDefaultSize
+                 prev.smallText.frame.size = self.fieldDefaultSize   */
                 prev.movieLbl.frame.size = self.titleDefaultSize
            })
            
@@ -297,21 +299,21 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
            
             
             UIView.animateWithDuration(0.5, animations: { () -> Void in
-                
-            next.movieImg.frame.size = self.imgFocusSize
-            next.movieLbl.frame.size = self.titleFocusSize
-            next.smallText.frame.size = self.fieldFocusSize
+                next.movieLbl.frame.size = self.titleFocusSize
+
+        /*  next.movieImg.frame.size = self.imgFocusSize
+                       next.smallText.frame.size = self.fieldFocusSize
                 
             next.movieImg.layer.shadowColor = UIColor.blackColor().CGColor
             next.movieImg.layer.shadowOffset = CGSize(width: 0.0, height: 8)
             next.movieImg.layer.shadowRadius = CGFloat(15.0)
-            next.movieImg.layer.shadowOpacity = 0.50
+            next.movieImg.layer.shadowOpacity = 0.50*/
             
           })
             
         }
 
     }
-    
+*/
 }
 

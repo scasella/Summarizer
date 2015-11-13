@@ -8,12 +8,10 @@
 
 import UIKit
 
-class MovieCell: UICollectionViewCell {
+class MovieCell: UITableViewCell {
     
-    @IBOutlet weak var button: UIButton!
-    @IBOutlet weak var movieImg: UIImageView!
+
     @IBOutlet weak var movieLbl: UILabel!
-    @IBOutlet weak var smallText: UILabel!
 
     
     /*
