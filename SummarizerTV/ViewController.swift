@@ -8,24 +8,26 @@
 
 import UIKit
 
+var articleLink = ""
+var titleArray = [String]()
+var linkArray = [String]()
+var summaryCards = [String]()
+//var summaryTitles = [String]()
+
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    
-    var summaryCards = [String]()
-    var summaryTitles = [String]()
-    var titleArray = [String]()
-    var linkArray = [String]()
+
     var providerArray = [String]()
     var teaserArray = [String]()
     
     var segueToggle = false
     @IBOutlet weak var tableView: UITableView!
     
-    
-    
-    @IBOutlet weak var collectionView: UICollectionView!
-    
+    @IBOutlet weak var headerLabel: UITextView!
     @IBOutlet weak var segmentControl: UISegmentedControl!
+    @IBOutlet weak var headerBar: UIVisualEffectView!
+    @IBOutlet weak var fullArticleButton: UIButton!
+    @IBOutlet weak var gatheringLabel: UILabel!
+    @IBOutlet weak var activityLabel: UIActivityIndicatorView!
     
     let imgDefaultSize = CGSizeMake(594, 290)
     let imgFocusSize = CGSizeMake(644, 340)
@@ -39,6 +41,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        headerLabel.layer.shadowColor = UIColor.blackColor().CGColor
+         headerLabel.layer.shadowOpacity = 0.75
+           headerLabel.layer.shadowOffset = CGSizeMake(0.0, 0.0)
+        headerLabel.layer.shadowRadius = 5.0
+        
         let segAttributes: NSDictionary = [
             NSForegroundColorAttributeName: UIColor.whiteColor()
         ]
@@ -48,8 +55,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         linkArray.removeAll()
         titleArray.removeAll()
         summaryCards.removeAll()
-        summaryTitles.removeAll()
-        titleArray.removeAll()
+        //summaryTitles.removeAll()
         linkArray.removeAll()
         providerArray.removeAll()
         teaserArray.removeAll()
@@ -80,11 +86,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                             
                             let title = item["title"]
                         
-                            self.linkArray.append(title! as! String)
+                            linkArray.append(title! as! String)
                             
                             let titleName = item["title/_text"]
                             
-                            self.titleArray.append(titleName! as! String)
+                            titleArray.append(titleName! as! String)
                             
                             let provider = item["provider"]
                             
@@ -98,7 +104,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                         
                         dispatch_sync(dispatch_get_main_queue()){
 
-                        
+                        self.gatheringLabel.text = "Highlight a headline"
+                        self.activityLabel.stopAnimating()
                         self.tableView.reloadData()
                            
                         }
@@ -122,90 +129,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     
-    func downloadData(linkObj: String) {
-  
-    //dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-   
-        
-       /* let task = NSURLSession.sharedSession().dataTaskWithURL(NSURL(string: linkObj.stringByRemovingPercentEncoding!)!) { (data, response, error) -> Void in
-            
-            if let urlContent = data {
-                
-                let webContent = NSString(data: urlContent, encoding: NSUTF8StringEncoding)
-                
-                let websiteArray = webContent!.componentsSeparatedByString("<title>")
-                
-                if websiteArray.count > 1 {
-                    
-                    var weatherSummary = websiteArray[1].componentsSeparatedByString("</title>")
-                    
-                   // wasSuccessful = true
-                    
-                    
-                        self.titleArray.append("\(weatherSummary[0])".stringByReplacingOccurrencesOfString("&#039;", withString: "'").stringByReplacingOccurrencesOfString("&#39;", withString: "'").stringByReplacingOccurrencesOfString("&#x27;", withString: "'"))
-                        NSUserDefaults.standardUserDefaults().setObject(self.titleArray, forKey: "titleArray")
-                }*/
-        /*let encodedURL = linkObj.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())!*/
-        
-        let mappedURLString = "https://api.import.io/store/data/13523395-b0a2-4791-92e1-0c609717b53a/_query?input/url=" + linkObj + "&_user=269d78c6-495d-43df-899d-47320fc07fe4&_apikey=269d78c6495d43df899d47320fc07fe4886fa6efe4d7561df8557e1696cb76a1fef8f22d1807eda04e3cf5335799c8a1920d4d62f0801e9f5ecdb4b5901f7f4f5fa653f59f1b71fe22582aea9acc9f69"
-        
-        let mappedURL = NSURL(string: mappedURLString)
-        
-        let data = NSData(contentsOfURL: mappedURL!)
-                
-                if data != nil {
-        
-        do { let jsonData = try NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.MutableContainers) as! NSDictionary
-            
-            if let items = jsonData["results"] as? NSArray {
-                
-                for item in items {
-                    
-                    let summary = item["summarytext"]!
-                    
-                    self.summaryCards.append(summary as! String)
-                    //NSUserDefaults.standardUserDefaults().setObject(self.summaryCards, forKey: "summaryCards")
-                    
-                    self.summaryTitles.append(self.titleArray[self.linkArray.indexOf(linkObj)!])
-                    
-                    //dispatch_sync(dispatch_get_main_queue()){
-                        print(summaryCards)
-                    
-                      /*  if loadingIndicator != nil {
-                            loadingIndicator!.hidden = true
-                            buttonToHideShow!.hidden = false
-                        }*/
-                        
-                        //self.collectionView.reloadData()
-                        
-                    //}
-                    
-                }}
-            
-            } catch {
-            
-            print("not a dictionary")
-            
-                    } }
-        
-            
-        
-    
-    
-    /*}
-    
-    task.resume()
-    
-    // })
-    
-}*/
-//})
-
-}
-
-
-
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -239,26 +162,53 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     func tapped(gesture: UITapGestureRecognizer) {
-        if let _ = gesture.view as? MovieCell {
+        if let cell = gesture.view as? MovieCell {
+            
+            tableView.userInteractionEnabled = false
+            
+            UIView.animateWithDuration(2.5, animations: { () -> Void in
+
+            self.headerBar.frame.size = CGSizeMake(1920, 1080)
+            self.fullArticleButton.hidden = false
+            self.fullArticleButton.enabled = true
+            //self.headerLabel.frame.size = CGSizeMake(1584, 729)
            
-        print("clickled")
+            })
+            
+            downloadData(linkArray[titleArray.indexOf(cell.movieLbl.text!)!], textField: headerLabel)
+                
+            articleLink = linkArray[titleArray.indexOf(cell.movieLbl.text!)!]
+            //performSegueWithIdentifier("toFullSegue", sender: self)
         }
     }
 
+    
+    
+    @IBAction func fullArticlePressed(sender: AnyObject) {
+        performSegueWithIdentifier("toFullSegue", sender: self)
+    }
+    
+    
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return titleArray.count
     }
     
     
+    
     func tableView(tableView: UITableView, didUpdateFocusInContext context: UITableViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
          if let next = context.nextFocusedView as? MovieCell {
             
-            let views = UIView()
+            gatheringLabel.hidden = true
+            activityLabel.hidden = true
             
+            let views = UIView()
             views.backgroundColor = UIColor.clearColor()
-         
             next.selectedBackgroundView = views
+            
+            let index = titleArray.indexOf(next.movieLbl.text!)
+            
+            headerLabel.text = teaserArray[index!]
             
             next.movieLbl.frame.size = CGSizeMake(868, 212)
             //next.movieLbl.layer.transform = x

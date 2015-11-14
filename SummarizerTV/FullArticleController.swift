@@ -8,10 +8,6 @@
 
 import UIKit
 
-var urlArray = ["http://www.businessinsider.com/senator-mccaskill-not-done-with-valeant-2015-10","http://www.cnn.com/2015/10/26/politics/congress-budget-talks-hill/index.html","http://www.engadget.com/2015/10/26/etsy-asap-same-day-deliver-nyc/"]
-
-var titleArray = ["The first politician has come out and said she's not done with Valeant","Egypt hunts for hidden pyramid chambers with cosmic rays","WSJ: Citigroup is testing iris-scanning ATMs from Diebold"]
-
 var summaryArray = [String]()
 
 class FullArticleController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -27,6 +23,7 @@ class FullArticleController: UIViewController, UITableViewDelegate, UITableViewD
         textView.panGestureRecognizer.allowedTouchTypes = [NSNumber(integer: UITouchType.Indirect.rawValue)]
         textView.preferredFocusedView
         
+        showArticle(articleLink)
         
       //  dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             //  let qualityOfServiceClass = QOS_CLASS_BACKGROUND
@@ -55,7 +52,7 @@ class FullArticleController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         imageView.image = nil
         
-        showArticle(urlArray[indexPath.row])
+        showArticle(linkArray[indexPath.row])
         titleLabel.text = titleArray[indexPath.row]
     }
     
