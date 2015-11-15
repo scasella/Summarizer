@@ -135,3 +135,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 }
 @IBAction func fullArticlePressed(sender: AnyObject) {
 }
+@IBAction func segmentChanged(sender: AnyObject) {
+}
+@IBAction func test1(sender: AnyObject) {
+}
+@IBAction func test1(sender: AnyObject) {
+}
+@IBAction func test(sender: AnyObject) {
+}
+@IBAction func segmentChanged(sender: AnyObject) {
+}
+@IBAction func test1(sender: AnyObject) {
+}
