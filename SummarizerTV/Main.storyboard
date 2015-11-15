@@ -102,23 +102,23 @@
                                         <rect key="frame" x="168" y="34" width="1579" height="235"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="48"/>
-                                        <color key="textColor" red="0.87841303661616155" green="0.87841303661616155" blue="0.87841303661616155" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.95486111111111105" green="0.95486111111111105" blue="0.95486111111111105" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
-                                        <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <size key="shadowOffset" width="0.0" height="0.0"/>
                                     </label>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="QFz-YN-Ned">
                                         <rect key="frame" x="928" y="185" width="64" height="64"/>
                                         <animations/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     </activityIndicatorView>
                                 </subviews>
                                 <animations/>
                                 <color key="backgroundColor" red="0.093039772727272596" green="0.093039772727272596" blue="0.093039772727272596" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <button hidden="YES" opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cph-XN-ERt">
-                                <rect key="frame" x="817" y="925" width="561" height="86"/>
+                                <rect key="frame" x="846" y="932" width="480" height="86"/>
                                 <animations/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" title="See full article"/>
@@ -127,7 +127,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vQS-AD-T5k">
-                                <rect key="frame" x="538" y="925" width="241" height="86"/>
+                                <rect key="frame" x="567" y="932" width="241" height="86"/>
                                 <animations/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" title="Back"/>
@@ -180,8 +180,15 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="1920" height="151"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="zuw-yR-uhC">
+                                                        <rect key="frame" x="666" y="14" width="1223" height="123"/>
+                                                        <animations/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="58"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </label>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UsP-UV-gAp">
-                                                        <rect key="frame" x="58" y="39" width="149" height="60"/>
+                                                        <rect key="frame" x="58" y="46" width="149" height="60"/>
                                                         <animations/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
@@ -190,13 +197,6 @@
                                                             <segue destination="BYZ-38-t0r" kind="show" identifier="" animates="NO" id="8dI-Zr-zYt"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="zuw-yR-uhC">
-                                                        <rect key="frame" x="664" y="14" width="1223" height="123"/>
-                                                        <animations/>
-                                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="54"/>
-                                                        <nil key="highlightedColor"/>
-                                                        <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </label>
                                                 </subviews>
                                                 <animations/>
                                             </view>
@@ -251,8 +251,8 @@
                                     <outlet property="delegate" destination="rlJ-ZJ-tEp" id="piX-ds-SCk"/>
                                 </connections>
                             </tableView>
-                            <textView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gpl-zt-aaD">
-                                <rect key="frame" x="648" y="147" width="632" height="933"/>
+                            <textView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gpl-zt-aaD">
+                                <rect key="frame" x="648" y="152" width="658" height="928"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -260,7 +260,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u3O-HJ-IxQ">
-                                <rect key="frame" x="1314" y="180" width="586" height="394"/>
+                                <rect key="frame" x="1310" y="177" width="586" height="394"/>
                                 <animations/>
                             </imageView>
                         </subviews>

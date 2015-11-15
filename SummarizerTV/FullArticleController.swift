@@ -24,16 +24,21 @@ class FullArticleController: UIViewController, UITableViewDelegate, UITableViewD
         textView.preferredFocusedView
         
         titleLabel.text = titleArray[linkArray.indexOf(articleLink)!]
-        showArticle(articleLink)
         
       //  dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             //  let qualityOfServiceClass = QOS_CLASS_BACKGROUND
             //let backgroundQueue = dispatch_get_global_queue(qualityOfServiceClass, 0)
             //dispatch_async(backgroundQueue, {
         
-        }
+    }
     
+    
+    
+    override func viewWillAppear(animated: Bool) {
+        showArticle(articleLink)
+    }
    
+    
     
     override func didUpdateFocusInContext(context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
         
@@ -84,7 +89,7 @@ class FullArticleController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     func showArticle(urlParam: String) {
-        
+   
         let sourceText = urlParam.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())!
         
         let urlText = "http://embed.ly/docs/explore/extract?url=" + "\(sourceText)"
@@ -96,9 +101,9 @@ class FullArticleController: UIViewController, UITableViewDelegate, UITableViewD
         
         let mappedURL = NSURL(string: mappedURLString)
         
-        let data = NSData(contentsOfURL: mappedURL!)
+        if let data = NSData(contentsOfURL: mappedURL!) {
         
-        do { let jsonData = try NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions.MutableContainers) as! NSDictionary
+        do { let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options:NSJSONReadingOptions.MutableContainers) as! NSDictionary
             
             if let items = jsonData["results"] as? NSArray {
                 
@@ -107,6 +112,7 @@ class FullArticleController: UIViewController, UITableViewDelegate, UITableViewD
                     let text = item["text"]!
                     
                     self.textView.text = text as! String
+                    self.textView.setContentOffset(CGPointZero, animated:true)
                     //NSUserDefaults.standardUserDefaults().setObject(tickerTable, forKey: "tickerTable")
                     
                     if item["image"]! != nil {
@@ -170,5 +176,6 @@ class FullArticleController: UIViewController, UITableViewDelegate, UITableViewD
 
     }
     
-
+    }
+    
     }

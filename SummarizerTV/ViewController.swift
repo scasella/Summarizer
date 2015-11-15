@@ -174,7 +174,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             //activityLabel.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
             activityLabel.startAnimating()
             activityLabel.hidden = false
-            activityLabel.transform.ty = 305
+            activityLabel.transform.ty = 275
             activityLabel.alpha = 0.0
             fullArticleButton.alpha = 0.0
             backButton.alpha = 0.0
@@ -183,7 +183,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             fullArticleButton.hidden = false
             backButton.hidden = false
             
-            UIView.animateWithDuration(2.5, animations: {
+            UIView.animateWithDuration(1.00, animations: {
             self.headerBar.frame.size = CGSizeMake(1920, 1080)
            
             self.activityLabel.alpha = 1.0
@@ -192,7 +192,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
            
                 }, completion: {
                     (value: Bool) in
-                    UIView.animateWithDuration(1.5, animations: {
+                    
+                    downloadData(linkArray[titleArray.indexOf(cell.movieLbl.text!)!], textField: self.headerLabel, loadingInd: self.activityLabel)
+                    articleLink = linkArray[titleArray.indexOf(cell.movieLbl.text!)!]
+                    
+                    UIView.animateWithDuration(0.75, animations: {
                     self.headerLabel.alpha = 1.0
                     self.blurView.alpha = 1.0
                     self.fullArticleButton.alpha = 1.0
@@ -201,9 +205,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 })
         
             
-            downloadData(linkArray[titleArray.indexOf(cell.movieLbl.text!)!], textField: headerLabel, loadingInd: activityLabel)
-                
-            articleLink = linkArray[titleArray.indexOf(cell.movieLbl.text!)!]
+            
             //performSegueWithIdentifier("toFullSegue", sender: self)
             
             //headerLabel.selectable = true
