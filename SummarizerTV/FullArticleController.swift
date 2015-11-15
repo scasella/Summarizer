@@ -23,6 +23,7 @@ class FullArticleController: UIViewController, UITableViewDelegate, UITableViewD
         textView.panGestureRecognizer.allowedTouchTypes = [NSNumber(integer: UITouchType.Indirect.rawValue)]
         textView.preferredFocusedView
         
+        titleLabel.text = titleArray[linkArray.indexOf(articleLink)!]
         showArticle(articleLink)
         
       //  dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {

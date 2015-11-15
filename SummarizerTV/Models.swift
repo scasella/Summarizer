@@ -5,7 +5,7 @@ import UIKit
 
 
 
-func downloadData(linkObj: String, textField: UITextView) {
+func downloadData(linkObj: String, textField: UILabel, loadingInd: UIActivityIndicatorView) {
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
         
@@ -53,6 +53,7 @@ func downloadData(linkObj: String, textField: UITextView) {
                         
                         dispatch_sync(dispatch_get_main_queue()){
                             textField.text = summaryCards[0]
+                            loadingInd.stopAnimating()
                             textField.textAlignment = NSTextAlignment.Justified
                             
                             /*  if loadingIndicator != nil {

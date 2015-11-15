@@ -22,12 +22,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var segueToggle = false
     @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var headerLabel: UITextView!
+    @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var segmentControl: UISegmentedControl!
-    @IBOutlet weak var headerBar: UIVisualEffectView!
+    @IBOutlet weak var headerBar: UIView!
     @IBOutlet weak var fullArticleButton: UIButton!
     @IBOutlet weak var gatheringLabel: UILabel!
     @IBOutlet weak var activityLabel: UIActivityIndicatorView!
+    @IBOutlet weak var blurView: UIVisualEffectView!
+    @IBOutlet weak var backButton: UIButton!
     
     let imgDefaultSize = CGSizeMake(594, 290)
     let imgFocusSize = CGSizeMake(644, 340)
@@ -41,10 +43,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        headerLabel.layer.shadowColor = UIColor.blackColor().CGColor
-         headerLabel.layer.shadowOpacity = 0.75
-           headerLabel.layer.shadowOffset = CGSizeMake(0.0, 0.0)
-        headerLabel.layer.shadowRadius = 5.0
+      /*
+        headerLabel.layer.shadowOpacity = 0.75
+        headerLabel.layer.shadowOffset = CGSizeMake(0.0, 0.0)
+        headerLabel.layer.shadowRadius = 5.0*/
         
         let segAttributes: NSDictionary = [
             NSForegroundColorAttributeName: UIColor.whiteColor()
@@ -165,22 +167,53 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if let cell = gesture.view as? MovieCell {
             
             tableView.userInteractionEnabled = false
+            segmentControl.userInteractionEnabled = false
+            headerLabel.text = ""
+            headerLabel.alpha = 0.0
+            gatheringLabel.alpha = 0.0
+            //activityLabel.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
+            activityLabel.startAnimating()
+            activityLabel.hidden = false
+            activityLabel.transform.ty = 305
+            activityLabel.alpha = 0.0
+            fullArticleButton.alpha = 0.0
+            backButton.alpha = 0.0
+            blurView.hidden = false
             
-            UIView.animateWithDuration(2.5, animations: { () -> Void in
-
+            fullArticleButton.hidden = false
+            backButton.hidden = false
+            
+            UIView.animateWithDuration(2.5, animations: {
             self.headerBar.frame.size = CGSizeMake(1920, 1080)
-            self.fullArticleButton.hidden = false
-            self.fullArticleButton.enabled = true
+           
+            self.activityLabel.alpha = 1.0
+            self.backButton.preferredFocusedView
             //self.headerLabel.frame.size = CGSizeMake(1584, 729)
            
-            })
+                }, completion: {
+                    (value: Bool) in
+                    UIView.animateWithDuration(1.5, animations: {
+                    self.headerLabel.alpha = 1.0
+                    self.blurView.alpha = 1.0
+                    self.fullArticleButton.alpha = 1.0
+                    self.backButton.alpha = 1.0
+                    })
+                })
+        
             
-            downloadData(linkArray[titleArray.indexOf(cell.movieLbl.text!)!], textField: headerLabel)
+            downloadData(linkArray[titleArray.indexOf(cell.movieLbl.text!)!], textField: headerLabel, loadingInd: activityLabel)
                 
             articleLink = linkArray[titleArray.indexOf(cell.movieLbl.text!)!]
             //performSegueWithIdentifier("toFullSegue", sender: self)
+            
+            //headerLabel.selectable = true
+            //headerLabel.panGestureRecognizer.allowedTouchTypes = [NSNumber(integer: UITouchType.Indirect.rawValue)]
+            //headerLabel.preferredFocusedView
+            
+            
         }
     }
+    
 
     
     
@@ -197,9 +230,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     func tableView(tableView: UITableView, didUpdateFocusInContext context: UITableViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
-         if let next = context.nextFocusedView as? MovieCell {
+        
+        if let next = context.nextFocusedView as? MovieCell {
             
-            gatheringLabel.hidden = true
+           // gatheringLabel.hidden = true
             activityLabel.hidden = true
             
             let views = UIView()
@@ -208,7 +242,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             let index = titleArray.indexOf(next.movieLbl.text!)
             
-            headerLabel.text = teaserArray[index!]
+            gatheringLabel.text = teaserArray[index!]
             
             next.movieLbl.frame.size = CGSizeMake(868, 212)
             //next.movieLbl.layer.transform = x

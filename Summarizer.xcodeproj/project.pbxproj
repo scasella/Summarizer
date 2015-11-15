@@ -75,8 +75,6 @@
 		88F945CC1BDBE7670084441D /* Card3.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F945CB1BDBE7670084441D /* Card3.png */; };
 		88F945CD1BDBE7670084441D /* Card3.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F945CB1BDBE7670084441D /* Card3.png */; };
 		88F945DC1BDC22E70084441D /* Card7.png in Resources */ = {isa = PBXBuildFile; fileRef = 88F945DB1BDC22E70084441D /* Card7.png */; };
-		88FCD0181BF3E18D00049468 /* BG6.png in Resources */ = {isa = PBXBuildFile; fileRef = 88FCD0171BF3E18D00049468 /* BG6.png */; };
-		88FCD01A1BF3E58D00049468 /* BG8.png in Resources */ = {isa = PBXBuildFile; fileRef = 88FCD0191BF3E58D00049468 /* BG8.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -200,8 +198,6 @@
 		88D0CB561BB3748700C896F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88F945CB1BDBE7670084441D /* Card3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Card3.png; sourceTree = "<group>"; };
 		88F945DB1BDC22E70084441D /* Card7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Card7.png; sourceTree = "<group>"; };
-		88FCD0171BF3E18D00049468 /* BG6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BG6.png; sourceTree = "<group>"; };
-		88FCD0191BF3E58D00049468 /* BG8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BG8.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -295,8 +291,6 @@
 			children = (
 				88F945DB1BDC22E70084441D /* Card7.png */,
 				887840D71BF65832009DA28F /* BG10.png */,
-				88FCD0171BF3E18D00049468 /* BG6.png */,
-				88FCD0191BF3E58D00049468 /* BG8.png */,
 				8884CEA31BD9E8E100461322 /* AppDelegate.swift */,
 				8884CEA41BD9E8E100461322 /* ViewController.swift */,
 				8884CEA51BD9E8E100461322 /* Models.swift */,
@@ -547,11 +541,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8884CE9C1BD9E82000461322 /* Assets.xcassets in Resources */,
-				88FCD0181BF3E18D00049468 /* BG6.png in Resources */,
 				88F945DC1BDC22E70084441D /* Card7.png in Resources */,
 				887840D81BF65832009DA28F /* BG10.png in Resources */,
 				8884CEAB1BD9E8E100461322 /* Main.storyboard in Resources */,
-				88FCD01A1BF3E58D00049468 /* BG8.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
