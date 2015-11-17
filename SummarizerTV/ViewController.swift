@@ -39,11 +39,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var headerBar: UIView!
-    @IBOutlet weak var fullArticleButton: UIButton!
     @IBOutlet weak var gatheringLabel: UILabel!
     @IBOutlet weak var activityLabel: UIActivityIndicatorView!
     @IBOutlet weak var blurView: UIVisualEffectView!
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var providerLabel: UILabel!
 
     
     
@@ -215,35 +215,30 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             activityLabel.hidden = false
             activityLabel.transform.ty = 275
             activityLabel.alpha = 0.0
-            fullArticleButton.alpha = 0.0
             backButton.alpha = 0.0
             blurView.hidden = false
-            
-            fullArticleButton.hidden = false
+        
             backButton.hidden = false
-            
+                
             UIView.animateWithDuration(1.00, animations: {
             self.headerBar.frame.size = CGSizeMake(1920, 1080)
            
             self.activityLabel.alpha = 1.0
-            self.backButton.preferredFocusedView
             //self.headerLabel.frame.size = CGSizeMake(1584, 729)
            
                 }, completion: {
                     (value: Bool) in
                     
-                    downloadData(linkArray[titleArray.indexOf(cell.movieLbl.text!)!], textField: self.headerLabel, loadingInd: self.activityLabel)
+                    downloadData(linkArray[titleArray.indexOf(cell.movieLbl.text!)!], textField: self.headerLabel, loadingInd: self.activityLabel, providerLabel: self.providerLabel)
                     articleLink = linkArray[titleArray.indexOf(cell.movieLbl.text!)!]
                     
                     UIView.animateWithDuration(0.75, animations: {
                     self.headerLabel.alpha = 1.0
                     self.blurView.alpha = 1.0
-                    self.fullArticleButton.alpha = 1.0
                     self.backButton.alpha = 1.0
                     })
                 })
         
-            
             
             //performSegueWithIdentifier("toFullSegue", sender: self)
             
@@ -265,8 +260,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBAction func fullArticlePressed(sender: AnyObject) {
         performSegueWithIdentifier("toFullSegue", sender: self)
     }
-    
-    
+
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return titleArray.count
@@ -415,7 +409,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             return
         }
         
-        let actionSheetController = UIAlertController(title: "Unlock All Headlines?", message: "", preferredStyle: UIAlertControllerStyle.ActionSheet)
+        let actionSheetController = UIAlertController(title: "Unlock All Headlines?", message: "All content will be permanently unlocked.", preferredStyle: UIAlertControllerStyle.ActionSheet)
         
         let buyAction = UIAlertAction(title: "Continue", style: UIAlertActionStyle.Default) { (action) -> Void in
             let payment = SKPayment(product: self.productsArray[0] as SKProduct)

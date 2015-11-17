@@ -63,9 +63,8 @@
 		8884CEAA1BD9E8E100461322 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8884CEA51BD9E8E100461322 /* Models.swift */; };
 		8884CEAB1BD9E8E100461322 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8884CEA61BD9E8E100461322 /* Main.storyboard */; };
 		8884CEAC1BD9E8E100461322 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8884CEA71BD9E8E100461322 /* MovieCell.swift */; };
+		888716A61BFBE787005789C3 /* logo3.png in Resources */ = {isa = PBXBuildFile; fileRef = 888716A51BFBE787005789C3 /* logo3.png */; };
 		88A40BF81BB700BA00AB9149 /* URLPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A40BF71BB700BA00AB9149 /* URLPageController.swift */; };
-		88B45C151BDF06D200B6EDB8 /* FullArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B45C141BDF06D200B6EDB8 /* FullArticleCell.swift */; };
-		88B45C171BDF072100B6EDB8 /* FullArticleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B45C161BDF072100B6EDB8 /* FullArticleController.swift */; };
 		88B7F1591BD44469008EAA78 /* TableBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 88B7F1571BD44469008EAA78 /* TableBG.png */; };
 		88B7F15A1BD44469008EAA78 /* PopOverBG5.png in Resources */ = {isa = PBXBuildFile; fileRef = 88B7F1581BD44469008EAA78 /* PopOverBG5.png */; };
 		88D0CB4B1BB3748700C896F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D0CB4A1BB3748700C896F8 /* AppDelegate.swift */; };
@@ -176,7 +175,7 @@
 		8879CD271BBC90D300042CFC /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
 		8879CD281BBC90D300042CFC /* TransitionZoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionZoom.swift; sourceTree = "<group>"; };
 		8879CD291BBC90D300042CFC /* UnwindSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnwindSegue.swift; sourceTree = "<group>"; };
-		8884CE921BD9E81F00461322 /* SummarizerTV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SummarizerTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8884CE921BD9E81F00461322 /* NewsWrap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsWrap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8884CE9B1BD9E82000461322 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8884CE9D1BD9E82000461322 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8884CEA11BD9E82600461322 /* SummarizerTV.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SummarizerTV.entitlements; sourceTree = "<group>"; };
@@ -186,9 +185,8 @@
 		8884CEA61BD9E8E100461322 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8884CEA71BD9E8E100461322 /* MovieCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		8884CEAD1BD9E95700461322 /* SummarizerTV-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SummarizerTV-Bridging-Header.h"; sourceTree = "<group>"; };
+		888716A51BFBE787005789C3 /* logo3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo3.png; sourceTree = "<group>"; };
 		88A40BF71BB700BA00AB9149 /* URLPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLPageController.swift; sourceTree = "<group>"; };
-		88B45C141BDF06D200B6EDB8 /* FullArticleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullArticleCell.swift; sourceTree = "<group>"; };
-		88B45C161BDF072100B6EDB8 /* FullArticleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullArticleController.swift; sourceTree = "<group>"; };
 		88B7F1571BD44469008EAA78 /* TableBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TableBG.png; sourceTree = "<group>"; };
 		88B7F1581BD44469008EAA78 /* PopOverBG5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PopOverBG5.png; sourceTree = "<group>"; };
 		88D0CB471BB3748700C896F8 /* Summarizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Summarizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -293,14 +291,13 @@
 			isa = PBXGroup;
 			children = (
 				88F945DB1BDC22E70084441D /* Card7.png */,
+				888716A51BFBE787005789C3 /* logo3.png */,
 				887840D71BF65832009DA28F /* BG10.png */,
 				8884CEA31BD9E8E100461322 /* AppDelegate.swift */,
 				8884CEA41BD9E8E100461322 /* ViewController.swift */,
 				8884CEA51BD9E8E100461322 /* Models.swift */,
 				8884CEAD1BD9E95700461322 /* SummarizerTV-Bridging-Header.h */,
 				8884CEA61BD9E8E100461322 /* Main.storyboard */,
-				88B45C161BDF072100B6EDB8 /* FullArticleController.swift */,
-				88B45C141BDF06D200B6EDB8 /* FullArticleCell.swift */,
 				8884CEA71BD9E8E100461322 /* MovieCell.swift */,
 				8884CEA11BD9E82600461322 /* SummarizerTV.entitlements */,
 				8884CE9B1BD9E82000461322 /* Assets.xcassets */,
@@ -327,7 +324,7 @@
 				88D0CB471BB3748700C896F8 /* Summarizer.app */,
 				886CB8D01BD7122B003D9F63 /* SummarizerWatch.app */,
 				886CB8DC1BD7122B003D9F63 /* SummarizerWatch Extension.appex */,
-				8884CE921BD9E81F00461322 /* SummarizerTV.app */,
+				8884CE921BD9E81F00461322 /* NewsWrap.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -420,7 +417,7 @@
 			);
 			name = SummarizerTV;
 			productName = SummarizerTV;
-			productReference = 8884CE921BD9E81F00461322 /* SummarizerTV.app */;
+			productReference = 8884CE921BD9E81F00461322 /* NewsWrap.app */;
 			productType = "com.apple.product-type.application";
 		};
 		88D0CB461BB3748700C896F8 /* Summarizer */ = {
@@ -550,6 +547,7 @@
 				8884CE9C1BD9E82000461322 /* Assets.xcassets in Resources */,
 				88F945DC1BDC22E70084441D /* Card7.png in Resources */,
 				887840D81BF65832009DA28F /* BG10.png in Resources */,
+				888716A61BFBE787005789C3 /* logo3.png in Resources */,
 				8884CEAB1BD9E8E100461322 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -594,11 +592,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8884CEA91BD9E8E100461322 /* ViewController.swift in Sources */,
-				88B45C151BDF06D200B6EDB8 /* FullArticleCell.swift in Sources */,
 				8884CEA81BD9E8E100461322 /* AppDelegate.swift in Sources */,
 				8884CEAC1BD9E8E100461322 /* MovieCell.swift in Sources */,
 				8884CEAA1BD9E8E100461322 /* Models.swift in Sources */,
-				88B45C171BDF072100B6EDB8 /* FullArticleController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -770,13 +766,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				INFOPLIST_FILE = SummarizerTV/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.scasella.Summarizer;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PRODUCT_NAME = NewsWrap;
+				PROVISIONING_PROFILE = "d6a41c6b-192b-42a7-8ab5-f0ea2ddd0329";
 				SDKROOT = appletvos;
 				SWIFT_OBJC_BRIDGING_HEADER = "SummarizerTV/SummarizerTV-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -791,13 +787,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				INFOPLIST_FILE = SummarizerTV/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.scasella.Summarizer;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PRODUCT_NAME = NewsWrap;
+				PROVISIONING_PROFILE = "d6a41c6b-192b-42a7-8ab5-f0ea2ddd0329";
 				SDKROOT = appletvos;
 				SWIFT_OBJC_BRIDGING_HEADER = "SummarizerTV/SummarizerTV-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 3;
