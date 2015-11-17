@@ -12,8 +12,9 @@ class MovieCell: UITableViewCell {
     
 
     @IBOutlet weak var movieLbl: UILabel!
-
-    
+    @IBOutlet weak var unlockLabel: UILabel!
+    @IBOutlet weak var unlockAmountLabel: UILabel!
+        @IBOutlet weak var unlockImg: UIImageView!
     /*
     func configureCell(movie: Movie) {
         if let title = movie.title {

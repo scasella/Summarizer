@@ -16,6 +16,8 @@ class FullArticleController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var table: UITableView!
+    @IBOutlet weak var providerLabel: UILabel!
+    @IBOutlet weak var backButton: UIButton!
     
     override func viewDidLoad() {
     
@@ -39,8 +41,11 @@ class FullArticleController: UIViewController, UITableViewDelegate, UITableViewD
     }
    
     
-    
     override func didUpdateFocusInContext(context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
+        
+        table.alpha = 1.0
+        backButton.alpha = 1.0
+
         
         if let prev = context.previouslyFocusedView as? FullArticleCell {
             prev.label.textColor = UIColor.whiteColor()
@@ -48,8 +53,15 @@ class FullArticleController: UIViewController, UITableViewDelegate, UITableViewD
             
         }
             
-            if let next = context.nextFocusedView as? FullArticleCell {
+        if let next = context.nextFocusedView as? FullArticleCell {
                 next.label.textColor = UIColor.blackColor()
+        }
+        
+        if let _ = context.nextFocusedView as? UITextView {
+                UIView.animateWithDuration(4.0, delay: 0.0, options: UIViewAnimationOptions.AllowUserInteraction, animations: {
+                  self.table.alpha = 0.1
+                  self.backButton.alpha = 0.1
+              }, completion:  nil)
             }
         }
     
@@ -67,10 +79,17 @@ class FullArticleController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
          if let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as? FullArticleCell {
             
+            if indexPath.row > 2 && unlocked == false {
+                
+                return cell
+            } else {
+
+            
             cell.label.text = titleArray[indexPath.row]
         
             return cell
             
+            }
          } else {
             
             FullArticleCell()
@@ -83,7 +102,11 @@ class FullArticleController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if unlocked == true {
         return titleArray.count
+        } else {
+            return 3
+        }
     }
     
     
@@ -161,7 +184,7 @@ class FullArticleController: UIViewController, UITableViewDelegate, UITableViewD
                         }
                     }
                     
-                    
+                    providerLabel.text = "from \(providerArray[linkArray.indexOf(articleLink)!])"
                     //NSUserDefaults.standardUserDefaults().setObject(priceArray, forKey: "priceArray")
                     
                 }

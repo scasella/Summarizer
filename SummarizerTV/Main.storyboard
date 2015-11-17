@@ -62,6 +62,30 @@
                                                     <color key="highlightedColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Unlock all headlines" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="i4R-BB-bcF">
+                                                    <rect key="frame" x="489" y="0.0" width="886" height="99"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="54"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
+                                                </label>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D3q-gF-xNb">
+                                                    <rect key="frame" x="856" y="95" width="152" height="85"/>
+                                                    <animations/>
+                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </imageView>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0.99" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="Oh2-b8-oEP">
+                                                    <rect key="frame" x="856" y="95" width="153" height="85"/>
+                                                    <animations/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="45"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
+                                                </label>
                                             </subviews>
                                             <animations/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -72,6 +96,9 @@
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="movieLbl" destination="S9q-He-xhM" id="ges-w2-S3G"/>
+                                            <outlet property="unlockAmountLabel" destination="Oh2-b8-oEP" id="Ed7-7G-gHp"/>
+                                            <outlet property="unlockImg" destination="D3q-gF-xNb" id="H5f-kn-QOB"/>
+                                            <outlet property="unlockLabel" destination="i4R-BB-bcF" id="CC4-tm-jk9"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -104,7 +131,7 @@
                                         <rect key="frame" x="168" y="34" width="1579" height="235"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="48"/>
-                                        <color key="textColor" red="0.95486111111111105" green="0.95486111111111105" blue="0.95486111111111105" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                         <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <size key="shadowOffset" width="0.0" height="0.0"/>
@@ -183,15 +210,8 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="1920" height="151"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="zuw-yR-uhC">
-                                                        <rect key="frame" x="605" y="14" width="1291" height="123"/>
-                                                        <animations/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="58"/>
-                                                        <nil key="highlightedColor"/>
-                                                        <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </label>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UsP-UV-gAp">
-                                                        <rect key="frame" x="58" y="46" width="149" height="60"/>
+                                                        <rect key="frame" x="58" y="41" width="149" height="69"/>
                                                         <animations/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
@@ -200,6 +220,13 @@
                                                             <segue destination="BYZ-38-t0r" kind="show" identifier="" animates="NO" id="8dI-Zr-zYt"/>
                                                         </connections>
                                                     </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="zuw-yR-uhC">
+                                                        <rect key="frame" x="580" y="14" width="1312" height="123"/>
+                                                        <animations/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="58"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </label>
                                                 </subviews>
                                                 <animations/>
                                             </view>
@@ -213,7 +240,7 @@
                                 <blurEffect style="dark"/>
                             </visualEffectView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="163" sectionHeaderHeight="40" sectionFooterHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="Dg7-S2-PZi">
-                                <rect key="frame" x="20" y="152" width="549" height="934"/>
+                                <rect key="frame" x="16" y="152" width="549" height="934"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -229,7 +256,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="533" height="163"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SCp-aN-rEr">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SCp-aN-rEr">
                                                     <rect key="frame" x="27" y="8" width="498" height="147"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="32"/>
@@ -255,7 +282,7 @@
                                 </connections>
                             </tableView>
                             <textView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gpl-zt-aaD">
-                                <rect key="frame" x="611" y="152" width="695" height="928"/>
+                                <rect key="frame" x="580" y="152" width="726" height="928"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -263,16 +290,25 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u3O-HJ-IxQ">
-                                <rect key="frame" x="1308" y="162" width="586" height="394"/>
+                                <rect key="frame" x="1308" y="170" width="586" height="394"/>
                                 <animations/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IM2-KT-aHa">
+                                <rect key="frame" x="1308" y="559" width="586" height="49"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="backButton" destination="UsP-UV-gAp" id="Uho-Y8-wIz"/>
                         <outlet property="imageView" destination="u3O-HJ-IxQ" id="XFS-6l-RPd"/>
+                        <outlet property="providerLabel" destination="IM2-KT-aHa" id="YmF-JE-vUt"/>
                         <outlet property="table" destination="Dg7-S2-PZi" id="974-ds-uB3"/>
                         <outlet property="textView" destination="gpl-zt-aaD" id="tCd-du-rdH"/>
                         <outlet property="titleLabel" destination="zuw-yR-uhC" id="oxJ-q2-pZz"/>
