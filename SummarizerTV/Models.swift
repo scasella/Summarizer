@@ -9,6 +9,7 @@ func downloadData(linkObj: String, textField: UILabel, loadingInd: UIActivityInd
    let providerString = providerArray[linkArray.indexOf(linkObj)!]
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
         
+        summaryCards.removeAll()
         
         /* let task = NSURLSession.sharedSession().dataTaskWithURL(NSURL(string: linkObj.stringByRemovingPercentEncoding!)!) { (data, response, error) -> Void in
         

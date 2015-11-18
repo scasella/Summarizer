@@ -37,7 +37,7 @@
                                 </segments>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <action selector="segmentChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="huI-bO-EJI"/>
+                                    <outletCollection property="gestureRecognizers" destination="Zut-Ad-Ywe" appends="YES" id="u5z-eN-5VJ"/>
                                 </connections>
                             </segmentedControl>
                             <imageView userInteractionEnabled="NO" alpha="0.25" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo3.png" translatesAutoresizingMaskIntoConstraints="NO" id="Tw3-89-ems">
@@ -125,7 +125,7 @@
                                         <blurEffect style="extraLight"/>
                                     </visualEffectView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="ZYS-Ur-jPE">
-                                        <rect key="frame" x="168" y="35" width="1584" height="800"/>
+                                        <rect key="frame" x="168" y="79" width="1584" height="757"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                         <nil key="highlightedColor"/>
@@ -141,7 +141,7 @@
                                         <size key="shadowOffset" width="0.0" height="0.0"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z43-O4-h2a">
-                                        <rect key="frame" x="1275" y="832" width="462" height="70"/>
+                                        <rect key="frame" x="1275" y="833" width="462" height="70"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="28"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -158,7 +158,7 @@
                                 <color key="backgroundColor" red="0.093039772727272596" green="0.093039772727272596" blue="0.093039772727272596" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <button hidden="YES" opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vQS-AD-T5k">
-                                <rect key="frame" x="830" y="932" width="241" height="86"/>
+                                <rect key="frame" x="830" y="185" width="241" height="86"/>
                                 <animations/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" title="Back"/>
@@ -187,6 +187,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Zut-Ad-Ywe">
+                    <pressTypeMask key="allowedPressTypes" select="YES"/>
+                    <connections>
+                        <action selector="segmentChanged:" destination="BYZ-38-t0r" id="06Z-I7-O3n"/>
+                        <outlet property="delegate" destination="8bC-Xf-vdC" id="AIj-Ut-C2h"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="245" y="339"/>
         </scene>

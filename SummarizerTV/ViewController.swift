@@ -18,8 +18,11 @@ var titleArray = [String]()
 var linkArray = [String]()
 var summaryCards = [String]()
 var providerArray = [String]()
+var teaserArray = [String]()
 //var summaryTitles = [String]()
 
+//var focusVar = 0
+var shouldSelectTable = false
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SKProductsRequestDelegate, SKRequestDelegate, SKPaymentTransactionObserver {
     
@@ -29,8 +32,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var product: SKProduct?
     
     var transactionInProgress = false
-    
-    var teaserArray = [String]()
+    var focusBack = false
     
     var segueToggle = false
     
@@ -57,7 +59,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     let newsDict = ["Trending": "https://api.import.io/store/data/a7ad8327-390c-4de5-947e-d1e17809186f/_query?input/webpage/url=http%3A%2F%2Fnews.google.com%2F%3Fsdm%3DTEXT%26authuser%3D0&_user=269d78c6-495d-43df-899d-47320fc07fe4&_apikey=269d78c6495d43df899d47320fc07fe4886fa6efe4d7561df8557e1696cb76a1fef8f22d1807eda04e3cf5335799c8a1920d4d62f0801e9f5ecdb4b5901f7f4f5fa653f59f1b71fe22582aea9acc9f69", "US": "https://api.import.io/store/data/a8dc3aad-1453-4875-9662-6fd97a420a0d/_query?input/webpage/url=https%3A%2F%2Fnews.google.com%2Fnews%2Fsection%3Fpz%3D1%26topic%3Dn%26sdm%3DTEXT%26authuser%3D0&_user=269d78c6-495d-43df-899d-47320fc07fe4&_apikey=269d78c6495d43df899d47320fc07fe4886fa6efe4d7561df8557e1696cb76a1fef8f22d1807eda04e3cf5335799c8a1920d4d62f0801e9f5ecdb4b5901f7f4f5fa653f59f1b71fe22582aea9acc9f69", "Business": "https://api.import.io/store/data/6eb3c0eb-35f6-4517-a679-b7159b72d954/_query?input/webpage/url=https%3A%2F%2Fnews.google.com%2Fnews%2Fsection%3Fpz%3D1%26topic%3Db%26sdm%3DTEXT%26authuser%3D0&_user=269d78c6-495d-43df-899d-47320fc07fe4&_apikey=269d78c6495d43df899d47320fc07fe4886fa6efe4d7561df8557e1696cb76a1fef8f22d1807eda04e3cf5335799c8a1920d4d62f0801e9f5ecdb4b5901f7f4f5fa653f59f1b71fe22582aea9acc9f69", "Tech": "https://api.import.io/store/data/c6f47ce2-0a6e-4027-bd9d-1746512c40c4/_query?input/webpage/url=https%3A%2F%2Fnews.google.com%2Fnews%2Fsection%3Fpz%3D1%26topic%3Dtc%26sdm%3DTEXT%26authuser%3D0&_user=269d78c6-495d-43df-899d-47320fc07fe4&_apikey=269d78c6495d43df899d47320fc07fe4886fa6efe4d7561df8557e1696cb76a1fef8f22d1807eda04e3cf5335799c8a1920d4d62f0801e9f5ecdb4b5901f7f4f5fa653f59f1b71fe22582aea9acc9f69", "Media":"https://api.import.io/store/data/3e3c1783-2f7f-49ac-9f87-696e6e760603/_query?input/webpage/url=https%3A%2F%2Fnews.google.com%2Fnews%2Fsection%3Fpz%3D1%26topic%3De%26sdm%3DTEXT%26authuser%3D0&_user=269d78c6-495d-43df-899d-47320fc07fe4&_apikey=269d78c6495d43df899d47320fc07fe4886fa6efe4d7561df8557e1696cb76a1fef8f22d1807eda04e3cf5335799c8a1920d4d62f0801e9f5ecdb4b5901f7f4f5fa653f59f1b71fe22582aea9acc9f69","Health":"https://api.import.io/store/data/9123d445-0b1a-4732-a80b-e79e6525b073/_query?input/webpage/url=https%3A%2F%2Fnews.google.com%2Fnews%2Fsection%3Fpz%3D1%26topic%3Dm%26sdm%3DTEXT%26authuser%3D0&_user=269d78c6-495d-43df-899d-47320fc07fe4&_apikey=269d78c6495d43df899d47320fc07fe4886fa6efe4d7561df8557e1696cb76a1fef8f22d1807eda04e3cf5335799c8a1920d4d62f0801e9f5ecdb4b5901f7f4f5fa653f59f1b71fe22582aea9acc9f69","Sports":"https://api.import.io/store/data/cf0d5716-cf73-4e8b-8bfa-48e4ca11e3a1/_query?input/webpage/url=https%3A%2F%2Fnews.google.com%2Fnews%2Fsection%3Fpz%3D1%26topic%3Ds%26sdm%3DTEXT%26authuser%3D0&_user=269d78c6-495d-43df-899d-47320fc07fe4&_apikey=269d78c6495d43df899d47320fc07fe4886fa6efe4d7561df8557e1696cb76a1fef8f22d1807eda04e3cf5335799c8a1920d4d62f0801e9f5ecdb4b5901f7f4f5fa653f59f1b71fe22582aea9acc9f69","Science":"https://api.import.io/store/data/6f9a719e-ba33-466b-87ac-caaa624a325d/_query?input/webpage/url=https%3A%2F%2Fnews.google.com%2Fnews%2Fsection%3Fpz%3D1%26topic%3Dsnc%26sdm%3DTEXT%26authuser%3D0&_user=269d78c6-495d-43df-899d-47320fc07fe4&_apikey=269d78c6495d43df899d47320fc07fe4886fa6efe4d7561df8557e1696cb76a1fef8f22d1807eda04e3cf5335799c8a1920d4d62f0801e9f5ecdb4b5901f7f4f5fa653f59f1b71fe22582aea9acc9f69"]
   
-    @IBAction func segmentChanged(sender: UISegmentedControl) {
+    @IBAction func segmentChanged(sender: UITapGestureRecognizer) {
         tableView.hidden = true
         gatheringLabel.text = "Gathering headlines..."
         switch segmentControl.selectedSegmentIndex {
@@ -74,9 +76,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         downloadLinks(currentNews)
     }
     
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         getProductInfo() 
         SKPaymentQueue.defaultQueue().addTransactionObserver(self)
     /*
@@ -89,9 +93,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         ]
 
         segmentControl.setTitleTextAttributes(segAttributes as [NSObject : AnyObject], forState: UIControlState.Normal)
-        
+        if shouldSelectTable != true {
        downloadLinks(currentNews)
-        
+        }
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -136,7 +140,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                             
                             let teaser = item["teaser"]
                             
-                            self.teaserArray.append(teaser! as! String)
+                            teaserArray.append(teaser! as! String)
 
                         }
                         
@@ -201,9 +205,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     func tapped(gesture: UITapGestureRecognizer) {
+      
         if let cell = gesture.view as? MovieCell {
             
             if cell.unlockLabel.hidden != false {
+            
+            
+            focusBack = true
+            backButton.hidden = false
+            backButton.alpha = 0.1
             
             tableView.userInteractionEnabled = false
             segmentControl.userInteractionEnabled = false
@@ -214,15 +224,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             activityLabel.startAnimating()
             activityLabel.hidden = false
             activityLabel.transform.ty = 275
+            
             activityLabel.alpha = 0.0
-            backButton.alpha = 0.0
             blurView.hidden = false
         
-            backButton.hidden = false
                 
             UIView.animateWithDuration(1.00, animations: {
             self.headerBar.frame.size = CGSizeMake(1920, 1080)
-           
+            self.backButton.transform.ty = 747
             self.activityLabel.alpha = 1.0
             //self.headerLabel.frame.size = CGSizeMake(1584, 729)
            
@@ -236,10 +245,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     self.headerLabel.alpha = 1.0
                     self.blurView.alpha = 1.0
                     self.backButton.alpha = 1.0
-                    })
+                   
+                })
                 })
         
-            
+                self.setNeedsFocusUpdate()
+                self.updateFocusIfNeeded()
             //performSegueWithIdentifier("toFullSegue", sender: self)
             
             //headerLabel.selectable = true
@@ -254,7 +265,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
-
+    override weak var preferredFocusedView: UIView? {
+        if focusBack == true {
+            focusBack = false
+            shouldSelectTable = true
+            return backButton }
+        else if shouldSelectTable == true {
+            //shouldSelectTable = false
+            return tableView
+        } else {
+            return segmentControl
+        }
+    }
     
     
     @IBAction func fullArticlePressed(sender: AnyObject) {
@@ -409,7 +431,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             return
         }
         
-        let actionSheetController = UIAlertController(title: "Unlock All Headlines?", message: "All content will be permanently unlocked.", preferredStyle: UIAlertControllerStyle.ActionSheet)
+        let actionSheetController = UIAlertController(title: "Unlock All Headlines", message: "All content will be permanently unlocked.", preferredStyle: UIAlertControllerStyle.ActionSheet)
         
         let buyAction = UIAlertAction(title: "Continue", style: UIAlertActionStyle.Default) { (action) -> Void in
             let payment = SKPayment(product: self.productsArray[0] as SKProduct)

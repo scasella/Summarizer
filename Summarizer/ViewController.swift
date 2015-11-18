@@ -147,3 +147,5 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 }
 @IBAction func test1(sender: AnyObject) {
 }
+@IBAction func segTapped(sender: AnyObject) {
+}
