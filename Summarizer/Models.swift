@@ -37,8 +37,9 @@ func addTitleAndSummary(urlText: String, bookmarksSelected: Bool, tableRefresh: 
         
     } else {
         
+        if tableRefresh != nil {
         bookmarkArray.append(urlText)
-        NSUserDefaults.standardUserDefaults().setObject(bookmarkArray, forKey: "bookmarkArray")
+            NSUserDefaults.standardUserDefaults().setObject(bookmarkArray, forKey: "bookmarkArray") }
     }
     
     var wasSuccessful = false
@@ -139,7 +140,63 @@ func addTitleAndSummary(urlText: String, bookmarksSelected: Bool, tableRefresh: 
         
     }
   
-    
-
-
 }
+
+   ///TRENDING API
+func downloadLinks(table: UITableView) {
+    
+    let url = "https://api.import.io/store/data/a7ad8327-390c-4de5-947e-d1e17809186f/_query?input/webpage/url=http%3A%2F%2Fnews.google.com%2F%3Fsdm%3DTEXT%26authuser%3D0&_user=269d78c6-495d-43df-899d-47320fc07fe4&_apikey=269d78c6495d43df899d47320fc07fe4886fa6efe4d7561df8557e1696cb76a1fef8f22d1807eda04e3cf5335799c8a1920d4d62f0801e9f5ecdb4b5901f7f4f5fa653f59f1b71fe22582aea9acc9f69"
+    let request = NSURLRequest(URL: NSURL(string: url)!)
+    let session = NSURLSession.sharedSession()
+    let task = session.dataTaskWithRequest(request) {
+        (data, response, error) -> Void in
+        
+        if error != nil {
+            print(error.debugDescription)
+        } else {
+            do { let dict = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments) as? NSDictionary
+                
+                if let items = dict!["results"] as? NSArray {
+                    
+                    trendTitleArray.removeAll()
+                    trendLinkArray.removeAll()
+                    
+                    for item in items {
+                        
+                        let title = item["title"]
+                        
+                        trendLinkArray.append(title! as! String)
+                        
+                        let titleName = item["title/_text"]
+                        
+                        trendTitleArray.append(titleName! as! String)
+                        
+                        
+                        dispatch_sync(dispatch_get_main_queue()){
+                            
+                            table.reloadData()
+                            
+                        }
+                    }
+                        // dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+                        
+                        //  })
+                    }
+                    
+                    
+                } catch {
+                    
+                }
+                // self.downloadData()
+            }
+        }
+        
+        task.resume()
+        
+}
+
+
+
+
+
+

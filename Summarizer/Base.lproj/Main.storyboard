@@ -392,18 +392,6 @@
                                             <action selector="closePressed:" destination="vtg-0o-lRL" eventType="touchUpInside" id="2tW-Cm-4Za"/>
                                         </connections>
                                     </button>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="TGf-2K-nAH">
-                                        <rect key="frame" x="116" y="4" width="143" height="29"/>
-                                        <animations/>
-                                        <segments>
-                                            <segment title="Favorites"/>
-                                            <segment title="Articles"/>
-                                        </segments>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <action selector="selectorChanged:" destination="vtg-0o-lRL" eventType="valueChanged" id="uGP-XV-gis"/>
-                                        </connections>
-                                    </segmentedControl>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Sc8-pa-bAb">
                                         <rect key="frame" x="22" y="8" width="20" height="20"/>
                                         <animations/>
@@ -442,6 +430,19 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="TGf-2K-nAH">
+                                        <rect key="frame" x="69" y="4" width="238" height="29"/>
+                                        <animations/>
+                                        <segments>
+                                            <segment title="Trending"/>
+                                            <segment title="Favorites"/>
+                                            <segment title="Articles"/>
+                                        </segments>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="selectorChanged:" destination="vtg-0o-lRL" eventType="valueChanged" id="uGP-XV-gis"/>
+                                        </connections>
+                                    </segmentedControl>
                                 </subviews>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -486,8 +487,8 @@
         <image name="RedFull.png" width="135" height="135"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xZL-2S-5fM"/>
-        <segue reference="v9I-LL-Hzf"/>
+        <segue reference="6oY-yh-Fcw"/>
         <segue reference="bwp-gO-Dzb"/>
+        <segue reference="v9I-LL-Hzf"/>
     </inferredMetricsTieBreakers>
 </document>

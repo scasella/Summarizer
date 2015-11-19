@@ -9,6 +9,10 @@
 import UIKit
 import WatchConnectivity
 
+var trendTitleArray = [String]()
+var trendLinkArray = [String]()
+
+
 class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataSource, WCSessionDelegate {
     
     var session: WCSession!
@@ -29,13 +33,14 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     @IBAction func selectorChanged(sender: AnyObject) {
         tableView.reloadData()
+        urlTextField.hidden = false
         
         func restoreDefaultTableView() {
             self.tableView.hidden = false
             self.onboardingLabel.hidden = true
         }
         
-        if bookmarkArticleSelector.selectedSegmentIndex == 0 {
+        if bookmarkArticleSelector.selectedSegmentIndex == 1 {
             
             urlTextField.placeholder = "Add favorite websites..."
             
@@ -50,7 +55,7 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
                 
                 }
             
-            } else {
+            } else if bookmarkArticleSelector.selectedSegmentIndex == 2{
             
             urlTextField.placeholder = "Paste article URL..."
             
@@ -63,7 +68,11 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
                 
                 restoreDefaultTableView()
             }
-      }
+            
+        } else {
+            urlTextField.hidden = true
+            downloadLinks(tableView)
+        }
     }
     
    
@@ -81,7 +90,7 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
         }
         
         
-        if bookmarkArticleSelector.selectedSegmentIndex == 0 {
+        if bookmarkArticleSelector.selectedSegmentIndex == 1 {
             
             addTitleAndSummary(url, bookmarksSelected: true, tableRefresh: self.tableView, loadingIndicator: nil, buttonToHideShow: nil)
             
@@ -91,7 +100,7 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
             }
             
             
-        } else {
+        } else if bookmarkArticleSelector.selectedSegmentIndex == 2{
             
             buttonToCards.hidden = true
             loadingIndicator.hidden = false
@@ -99,6 +108,9 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
             addTitleAndSummary(url, bookmarksSelected: false, tableRefresh: self.tableView, loadingIndicator: loadingIndicator, buttonToHideShow: buttonToCards)
         
             
+        } else {
+            
+        
         }
         
         onboardingLabel.hidden = true
@@ -144,7 +156,7 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
         } else {
             print("not avail") }
         
-        print("loaded")
+      
         
         blurView.layer.masksToBounds = true
         blurView.layer.cornerRadius = 12.0
@@ -213,16 +225,19 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        if bookmarkArticleSelector.selectedSegmentIndex == 0 {
+        if bookmarkArticleSelector.selectedSegmentIndex == 1 {
         urlForWebView = bookmarkArray[indexPath.row]
+        performSegueWithIdentifier("toWebView", sender: self)
             
-        } else {
+        } else if bookmarkArticleSelector.selectedSegmentIndex == 2 {
             
         urlForWebView = urlArray[indexPath.row]
+        performSegueWithIdentifier("toWebView", sender: self)
        
+        } else {
+            addTitleAndSummary(trendLinkArray[indexPath.row], bookmarksSelected: false , tableRefresh: nil, loadingIndicator: nil, buttonToHideShow: nil)
         }
         
-        performSegueWithIdentifier("toWebView", sender: self)
     }
     
     
@@ -243,10 +258,12 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        
-        if bookmarkArticleSelector.selectedSegmentIndex == 0 {
+        if bookmarkArticleSelector.selectedSegmentIndex == 1 {
            return  bookmarkTitleArray.count
-        } else {
+        } else if bookmarkArticleSelector.selectedSegmentIndex == 2 {
         return titleArray.count
+        } else {
+            return trendTitleArray.count
         }
     }
     
@@ -256,18 +273,29 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         let cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell!
         
-        if bookmarkArticleSelector.selectedSegmentIndex == 0 {
+        if bookmarkArticleSelector.selectedSegmentIndex == 1 {
             cell.textLabel?.text = bookmarkTitleArray[indexPath.row]
             cell.textLabel?.font = UIFont.systemFontOfSize(15.0)
-               cell.textLabel?.textColor = UIColor.whiteColor()
+            cell.textLabel?.textColor = UIColor.whiteColor()
+            cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
             return cell
             
+        } else if bookmarkArticleSelector.selectedSegmentIndex == 2 {
+        
+            cell.textLabel?.text = titleArray[indexPath.row]
+            cell.textLabel?.font = UIFont.systemFontOfSize(14.0)
+            cell.textLabel?.textColor = UIColor.whiteColor()
+            cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+            return cell
+        
         } else {
         
-        cell.textLabel?.text = titleArray[indexPath.row]
-        cell.textLabel?.font = UIFont.systemFontOfSize(14.0)
-          cell.textLabel?.textColor = UIColor.whiteColor()
+            cell.textLabel?.text = trendTitleArray[indexPath.row]
+            cell.accessoryType = UITableViewCellAccessoryType.None
+            cell.textLabel?.font = UIFont.systemFontOfSize(13.0)
+            cell.textLabel?.textColor = UIColor.whiteColor()
             return cell
+        
         }
        
     }
