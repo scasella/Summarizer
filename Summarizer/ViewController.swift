@@ -72,9 +72,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         } else {
             print("not avail") }
         
+        if(WCSession.isSupported()) {
+        if summaryCards.count != 0 {
         let dict = ["summary": summaryCards, "title": titleArray]
-        
         session.transferUserInfo(dict)
+            }
+        }
         
     }
     

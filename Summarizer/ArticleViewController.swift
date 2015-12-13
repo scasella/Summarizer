@@ -24,14 +24,16 @@ class ArticleViewController: UIViewController, UIWebViewDelegate, WCSessionDeleg
     
     
     @IBAction func homePressed(sender: AnyObject) {
-        
-        let dict = ["summary": summaryCards, "title": titleArray]
-        
-         session.transferUserInfo(dict)
+       
+        if(WCSession.isSupported()) {
+            if summaryCards.count != 0 {
+                let dict = ["summary": summaryCards, "title": titleArray]
+                session.transferUserInfo(dict)
+            }
+        }
    
         springViewParent.animate()
-        self.dismissViewControllerAnimated(true, completion: { () -> Void in
-        })
+      
         performSegueWithIdentifier("toCards", sender: self)
         
     }
@@ -113,7 +115,7 @@ class ArticleViewController: UIViewController, UIWebViewDelegate, WCSessionDeleg
         let requestObj = NSURLRequest(URL: url!);
         webView.loadRequest(requestObj);
         
-        loadingIndicator.hidden = false
+            loadingIndicator.hidden = false
         closeButton.hidden = true
         addButton.enabled = false 
     
@@ -122,9 +124,12 @@ class ArticleViewController: UIViewController, UIWebViewDelegate, WCSessionDeleg
     
     override func viewDidAppear(animated: Bool) {
         
-        let dict = ["summary": summaryCards, "title": titleArray]
-        
-         session.transferUserInfo(dict)
+        if(WCSession.isSupported()) {
+            if summaryCards.count != 0 {
+                let dict = ["summary": summaryCards, "title": titleArray]
+                session.transferUserInfo(dict)
+            }
+        }
         
     }
     

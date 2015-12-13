@@ -46,7 +46,7 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
             
             if bookmarkTitleArray.count == 0 {
                 tableView.hidden = true
-                onboardingLabel.text = "Add websites that post articles you like to read."
+                onboardingLabel.text = "Add websites that post articles you like."
                 onboardingLabel.hidden = false
                 
                 } else {
@@ -71,7 +71,9 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
             
         } else {
             urlTextField.hidden = true
-            downloadLinks(tableView)
+            onboardingLabel.hidden = true
+            tableView.hidden = false 
+            downloadTrending(tableView)
         }
     }
     
@@ -125,6 +127,7 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     
+    
     @IBAction func setHomepage(sender: AnyObject) {
      
         if homepageField.text != "" {
@@ -145,6 +148,8 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
         homepageField.text = "\(homepage)"
         
     }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -175,14 +180,18 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
             homepageSetView.hidden = true 
         } */
         
-        if bookmarkArray.count == 0 {
+        /*if bookmarkArray.count == 0 {
             tableView.hidden = true
             onboardingLabel.hidden = false
-        }
+        }*/
        
         tableView.layer.masksToBounds = true
         tableView.layer.borderColor = UIColor.whiteColor().CGColor
-        tableView.layer.borderWidth = 1.0
+        tableView.layer.borderWidth = 0.5
+        
+       
+        
+        downloadTrending(tableView)
         
         
         }
@@ -192,20 +201,25 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
     override func viewDidAppear(animated: Bool) {
         tableView.reloadData()
         
-        let dict = ["summary": summaryCards, "title": titleArray]
-        
-        session.transferUserInfo(dict)
-        
-        
+        if(WCSession.isSupported()) {
+            if summaryCards.count != 0 {
+                let dict = ["summary": summaryCards, "title": titleArray]
+                session.transferUserInfo(dict)
+            }
+        }
+    
     }
     
     
     
     @IBAction func closePressed(sender: AnyObject) {
         
-        let dict = ["summary": summaryCards, "title": titleArray]
-        
-        session.transferUserInfo(dict)
+        if(WCSession.isSupported()) {
+            if summaryCards.count != 0 {
+                let dict = ["summary": summaryCards, "title": titleArray]
+                session.transferUserInfo(dict)
+            }
+        }
         
         springView.duration = 0.5
         springView.y = -1000
@@ -235,7 +249,7 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
         performSegueWithIdentifier("toWebView", sender: self)
        
         } else {
-            addTitleAndSummary(trendLinkArray[indexPath.row], bookmarksSelected: false , tableRefresh: nil, loadingIndicator: nil, buttonToHideShow: nil)
+            addTitleAndSummary(trendLinkArray[indexPath.row], bookmarksSelected: false , tableRefresh: nil, loadingIndicator: loadingIndicator, buttonToHideShow: buttonToCards)
         }
         
     }
@@ -263,7 +277,7 @@ class URLPageController: UIViewController, UITableViewDelegate, UITableViewDataS
         } else if bookmarkArticleSelector.selectedSegmentIndex == 2 {
         return titleArray.count
         } else {
-            return trendTitleArray.count
+            return trendTitleArray.count 
         }
     }
     

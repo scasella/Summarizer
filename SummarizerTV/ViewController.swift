@@ -88,11 +88,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         headerLabel.layer.shadowOffset = CGSizeMake(0.0, 0.0)
         headerLabel.layer.shadowRadius = 5.0*/
         
-        let segAttributes: NSDictionary = [
-            NSForegroundColorAttributeName: UIColor.whiteColor()
-        ]
-
-        segmentControl.setTitleTextAttributes(segAttributes as [NSObject : AnyObject], forState: UIControlState.Normal)
+        
         if shouldSelectTable != true {
        downloadLinks(currentNews)
         }
@@ -443,8 +439,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
         }
         
+        let restorePurchase = UIAlertAction(title: "Restore Purchase", style: UIAlertActionStyle.Default) { (action) -> Void in
+            SKPaymentQueue.defaultQueue().restoreCompletedTransactions()
+            self.transactionInProgress = true
+        }
+        
         actionSheetController.addAction(buyAction)
         actionSheetController.addAction(cancelAction)
+        actionSheetController.addAction(restorePurchase)
         
         presentViewController(actionSheetController, animated: true, completion: nil)
     }
@@ -454,7 +456,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func paymentQueue(queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
      
     for transaction in transactions as! [SKPaymentTransaction] {
+   
     switch transaction.transactionState {
+    
     case SKPaymentTransactionState.Purchased:
     //print("Transaction completed successfully.")
     SKPaymentQueue.defaultQueue().finishTransaction(transaction)
@@ -462,12 +466,29 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     unlocked = true
     NSUserDefaults.standardUserDefaults().setObject(unlocked, forKey: "unlocked")
     performSegueWithIdentifier("refreshSegue", sender: self)
+        
+    let alert = UIAlertController(title: "Thank You", message: "All headlines unlocked.", preferredStyle: UIAlertControllerStyle.Alert)
+    presentViewController(alert, animated: true, completion: nil)
     
+    case SKPaymentTransactionState.Restored:
+        //print("Transaction completed successfully.")
+        SKPaymentQueue.defaultQueue().finishTransaction(transaction)
+        transactionInProgress = false
+        unlocked = true
+        NSUserDefaults.standardUserDefaults().setObject(unlocked, forKey: "unlocked")
+        performSegueWithIdentifier("refreshSegue", sender: self)
+        
+        let alert = UIAlertController(title: "Thank You", message: "Your purchase was restored.", preferredStyle: UIAlertControllerStyle.Alert)
+        presentViewController(alert, animated: true, completion: nil)
+        
     
     case SKPaymentTransactionState.Failed:
     //print("Transaction Failed");
     SKPaymentQueue.defaultQueue().finishTransaction(transaction)
     transactionInProgress = false
+        
+    let alert = UIAlertController(title: "Error", message: "Please try again.", preferredStyle: UIAlertControllerStyle.Alert)
+    presentViewController(alert, animated: true, completion: nil)
     
     default:
     print(transaction.transactionState.rawValue)
@@ -476,7 +497,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
         }
     }
-    
     
 }
 

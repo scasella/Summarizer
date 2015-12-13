@@ -30,6 +30,11 @@ var homepage = "http://news.google.com"
 
 func addTitleAndSummary(urlText: String, bookmarksSelected: Bool, tableRefresh: UITableView?, loadingIndicator: UIActivityIndicatorView?, buttonToHideShow: UIButton?) {
     
+    if loadingIndicator != nil {
+    loadingIndicator!.hidden = false
+    buttonToHideShow!.hidden = true
+    }
+        
     if bookmarksSelected == false {
         
     urlArray.append(urlText)
@@ -48,7 +53,7 @@ func addTitleAndSummary(urlText: String, bookmarksSelected: Bool, tableRefresh: 
     
     if let url = attemptedUrl {
         
-       // dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+       dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
         
         let task = NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) -> Void in
             
@@ -134,16 +139,18 @@ func addTitleAndSummary(urlText: String, bookmarksSelected: Bool, tableRefresh: 
         
         task.resume()
            
-         // })
+          })
         
     } else {
         
-    }
-  
+        }
+    
 }
 
+
+
    ///TRENDING API
-func downloadLinks(table: UITableView) {
+func downloadTrending(table: UITableView) {
     
     let url = "https://api.import.io/store/data/a7ad8327-390c-4de5-947e-d1e17809186f/_query?input/webpage/url=http%3A%2F%2Fnews.google.com%2F%3Fsdm%3DTEXT%26authuser%3D0&_user=269d78c6-495d-43df-899d-47320fc07fe4&_apikey=269d78c6495d43df899d47320fc07fe4886fa6efe4d7561df8557e1696cb76a1fef8f22d1807eda04e3cf5335799c8a1920d4d62f0801e9f5ecdb4b5901f7f4f5fa653f59f1b71fe22582aea9acc9f69"
     let request = NSURLRequest(URL: NSURL(string: url)!)
@@ -158,6 +165,7 @@ func downloadLinks(table: UITableView) {
                 
                 if let items = dict!["results"] as? NSArray {
                     
+                    table.userInteractionEnabled = false
                     trendTitleArray.removeAll()
                     trendLinkArray.removeAll()
                     
@@ -175,6 +183,7 @@ func downloadLinks(table: UITableView) {
                         dispatch_sync(dispatch_get_main_queue()){
                             
                             table.reloadData()
+                            table.userInteractionEnabled = true
                             
                         }
                     }

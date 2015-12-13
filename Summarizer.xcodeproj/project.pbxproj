@@ -28,6 +28,8 @@
 		886CB8F61BD717E1003D9F63 /* rowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886CB8F51BD717E1003D9F63 /* rowController.swift */; };
 		886CB8FF1BD74CF4003D9F63 /* FullSummaryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886CB8FD1BD74CF4003D9F63 /* FullSummaryController.swift */; };
 		886F47141BFABD5B001C718B /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 886F47131BFABD5B001C718B /* StoreKit.framework */; };
+		88770C4A1C1BABF700CE1F8B /* RedF2.png in Resources */ = {isa = PBXBuildFile; fileRef = 88770C481C1BABF700CE1F8B /* RedF2.png */; };
+		88770C4B1C1BABF700CE1F8B /* RedE2.png in Resources */ = {isa = PBXBuildFile; fileRef = 88770C491C1BABF700CE1F8B /* RedE2.png */; };
 		887840D81BF65832009DA28F /* BG10.png in Resources */ = {isa = PBXBuildFile; fileRef = 887840D71BF65832009DA28F /* BG10.png */; };
 		8879CD2A1BBC90D300042CFC /* AsyncButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8879CD0E1BBC90D300042CFC /* AsyncButton.swift */; };
 		8879CD2B1BBC90D300042CFC /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8879CD0F1BBC90D300042CFC /* AsyncImageView.swift */; };
@@ -67,6 +69,7 @@
 		88A40BF81BB700BA00AB9149 /* URLPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A40BF71BB700BA00AB9149 /* URLPageController.swift */; };
 		88B7F1591BD44469008EAA78 /* TableBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 88B7F1571BD44469008EAA78 /* TableBG.png */; };
 		88B7F15A1BD44469008EAA78 /* PopOverBG5.png in Resources */ = {isa = PBXBuildFile; fileRef = 88B7F1581BD44469008EAA78 /* PopOverBG5.png */; };
+		88C9F5571C0A288100AEDDA7 /* Line.png in Resources */ = {isa = PBXBuildFile; fileRef = 88C9F5561C0A288100AEDDA7 /* Line.png */; };
 		88D0CB4B1BB3748700C896F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D0CB4A1BB3748700C896F8 /* AppDelegate.swift */; };
 		88D0CB4D1BB3748700C896F8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D0CB4C1BB3748700C896F8 /* ViewController.swift */; };
 		88D0CB501BB3748700C896F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88D0CB4E1BB3748700C896F8 /* Main.storyboard */; };
@@ -146,6 +149,8 @@
 		886CB8F71BD7197F003D9F63 /* SummarizerWatch Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "SummarizerWatch Extension.entitlements"; sourceTree = "<group>"; };
 		886CB8FD1BD74CF4003D9F63 /* FullSummaryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullSummaryController.swift; sourceTree = "<group>"; };
 		886F47131BFABD5B001C718B /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS9.0.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
+		88770C481C1BABF700CE1F8B /* RedF2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedF2.png; sourceTree = "<group>"; };
+		88770C491C1BABF700CE1F8B /* RedE2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedE2.png; sourceTree = "<group>"; };
 		887840D71BF65832009DA28F /* BG10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BG10.png; sourceTree = "<group>"; };
 		8879CD0E1BBC90D300042CFC /* AsyncButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncButton.swift; sourceTree = "<group>"; };
 		8879CD0F1BBC90D300042CFC /* AsyncImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
@@ -189,6 +194,7 @@
 		88A40BF71BB700BA00AB9149 /* URLPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLPageController.swift; sourceTree = "<group>"; };
 		88B7F1571BD44469008EAA78 /* TableBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TableBG.png; sourceTree = "<group>"; };
 		88B7F1581BD44469008EAA78 /* PopOverBG5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PopOverBG5.png; sourceTree = "<group>"; };
+		88C9F5561C0A288100AEDDA7 /* Line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Line.png; sourceTree = "<group>"; };
 		88D0CB471BB3748700C896F8 /* Summarizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Summarizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88D0CB4A1BB3748700C896F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88D0CB4C1BB3748700C896F8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -334,14 +340,15 @@
 			children = (
 				886CB8F31BD714FD003D9F63 /* Summarizer.entitlements */,
 				8879CD0D1BBC90BE00042CFC /* Spring */,
-				88D0CB4E1BB3748700C896F8 /* Main.storyboard */,
 				88F945CE1BDBFF640084441D /* Assets */,
 				88A40BF71BB700BA00AB9149 /* URLPageController.swift */,
 				88D0CB4C1BB3748700C896F8 /* ViewController.swift */,
 				882379D01BB74636007C0635 /* ArticleViewController.swift */,
 				882379D21BB75541007C0635 /* Models.swift */,
 				8858A74C1BB395D600B8AF26 /* CustomCell.swift */,
+				88C9F5561C0A288100AEDDA7 /* Line.png */,
 				88D0CB4A1BB3748700C896F8 /* AppDelegate.swift */,
+				88D0CB4E1BB3748700C896F8 /* Main.storyboard */,
 				88D0CB511BB3748700C896F8 /* Assets.xcassets */,
 				88D0CB531BB3748700C896F8 /* LaunchScreen.storyboard */,
 				88D0CB561BB3748700C896F8 /* Info.plist */,
@@ -355,6 +362,8 @@
 				88B7F1571BD44469008EAA78 /* TableBG.png */,
 				88B7F1581BD44469008EAA78 /* PopOverBG5.png */,
 				88519CD31BB8824200C49896 /* FButton.png */,
+				88770C481C1BABF700CE1F8B /* RedF2.png */,
+				88770C491C1BABF700CE1F8B /* RedE2.png */,
 				8823C9D41BC493CD005B835A /* RedEmpty.png */,
 				8823C9D51BC493CD005B835A /* RedFull.png */,
 				8823C9D81BC4A3DE005B835A /* BGCard4.png */,
@@ -568,8 +577,11 @@
 				8823C9D91BC4A3DE005B835A /* BGCard4.png in Resources */,
 				88D0CB501BB3748700C896F8 /* Main.storyboard in Resources */,
 				8823C9D61BC493CD005B835A /* RedEmpty.png in Resources */,
+				88C9F5571C0A288100AEDDA7 /* Line.png in Resources */,
 				88519CD51BB8824200C49896 /* FButton.png in Resources */,
 				8879CD2E1BBC90D300042CFC /* LoadingView.xib in Resources */,
+				88770C4B1C1BABF700CE1F8B /* RedE2.png in Resources */,
+				88770C4A1C1BABF700CE1F8B /* RedF2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -766,13 +778,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SummarizerTV/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.scasella.Summarizer;
 				PRODUCT_NAME = NewsWrap;
-				PROVISIONING_PROFILE = "d6a41c6b-192b-42a7-8ab5-f0ea2ddd0329";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = appletvos;
 				SWIFT_OBJC_BRIDGING_HEADER = "SummarizerTV/SummarizerTV-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -787,13 +799,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SummarizerTV/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.scasella.Summarizer;
 				PRODUCT_NAME = NewsWrap;
-				PROVISIONING_PROFILE = "d6a41c6b-192b-42a7-8ab5-f0ea2ddd0329";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = appletvos;
 				SWIFT_OBJC_BRIDGING_HEADER = "SummarizerTV/SummarizerTV-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 3;
